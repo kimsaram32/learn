@@ -1,0 +1,1 @@
+vim records/$(date +%Y%m%d).md
