@@ -1,1 +1,5 @@
-vim records/$(date +%Y%m%d).md
+DATE=$(date +%Y%m%d)
+NAME=records/$DATE.md
+touch $NAME
+echo "# $DATE" > $NAME
+vim $NAME
