@@ -1,5 +1,16 @@
-DATE=$(date +%Y%m%d)
-NAME=records/$DATE.md
-touch $NAME
-echo "# $DATE" > $NAME
-vim $NAME
+#! /bin/bash
+
+dir=$1
+title=$2
+
+current_date=$(date +%Y%m%d)
+
+name=$dir/$current_date
+if [[ -n $title ]]; then
+  name+=-$title
+fi
+name+=.md
+
+touch $name
+echo "# $current_date" > $name
+vim $name
