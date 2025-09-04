@@ -4,13 +4,13 @@ dir=$1
 title=$2
 
 current_date=$(date +%Y%m%d)
+template_file=$(echo $dir/_template*)
 
-name=$dir/$current_date
+new_file=$dir/$current_date
 if [[ -n $title ]]; then
-  name+=-$title
+  new_file+=-$title
 fi
-name+=.md
+new_file+=".${template_file##*.}"
 
-touch $name
-echo "# $current_date" > $name
-vim $name
+sed "s/{{DATE}}/$(date +%Y%m%d)/" $template_file > $new_file
+vim $new_file
