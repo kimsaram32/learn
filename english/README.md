@@ -1,6 +1,6 @@
-# learn-english
+# English
 
-영어를 배우고 기록하는 레포지토리입니다.
+영어를 배우고 기록합니다.
 
 ## Writing
 
