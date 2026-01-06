@@ -1,0 +1,37 @@
+* 20260106 - My note system is a mess, and I love it
+** 1
+I've been using my personal note system since August, 2023. I still remember the day I read about the importance of recording your life into words, and immediately started to look up for tools I could use. At first, I started with Obsidian. And now I'm settled in Emacs.
+
+My current note system is a tangled mess. I have no clear workflows, and I can't easily search for entries I want.
+
+And I love it. I love the chaos of my current system.
+
+It's like learning; it's okay not to understand everything. It's also like Zettelkasten; embrace the organic growth and enjoy the feeling of stumbling into something you wrote in the past.
+** Feedback
+- "recording your life into"
+  + rephrase: putting your life into words
+  + rephrase: writing your life down
+- "look up for tools"
+  + "look up for" is incorrect. look up / look for
+- "It's also like Zettelkasten; embrace ... "
+  + tense shift? 라고 함 뭔소리지
+** 2
+I've been using my personal note system since August, 2023. I still remember the day I read about the importance of putting your life into words, and immediately started to look for tools I could use. At first, I started with Obsidian. And now I'm settled in Emacs.
+
+My current note system is a tangled mess. I have no clear workflows, and I can't easily search for entries I want.
+
+And I love it. I love the chaos of my current system.
+
+It's like learning; it's okay not to understand everything. It's also like Zettelkasten; I embrace the organic growth, and enjoy the feeling of stumbling into something I wrote in the past.
+** Feedback
+- "putting your life into"
+  + my life가 되어야 맞음
+- 세미콜론을 안 쓰는게 낫다고 함 (애초에 올바른 용법인지도 모름...)
+** 3
+I've been using my personal note system since August, 2023. I still remember the day I read about the importance of putting my life into words, and immediately started to look for tools I could use. At first, I started with Obsidian. And now I'm settled in Emacs.
+
+My current note system is a tangled mess. I have no clear workflows, and I can't easily search for entries I want.
+
+And I love it. I love the chaos of my current system.
+
+It's like learning. It's okay not to understand everything. It's also like Zettelkasten. I embrace the organic growth, and enjoy the feeling of stumbling into something I wrote in the past.
