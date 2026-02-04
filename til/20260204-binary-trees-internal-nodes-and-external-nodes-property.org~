@@ -1,0 +1,18 @@
+* 20260204 - Relationship between internal nodes and external nodes in binary trees
+A binary tree with \(N\) internal nodes has \(N + 1\) external nodes.
+
+This can be proved by induction:
+
+1. For \(N = 0\),
+   \(N = 0\)인 BT는 external node 뿐이다.
+   따라서 internal node 0개, external node 1개이므로 성립한다.
+
+2. For \(N > 0\),
+   1. BT is an internal node whose left subtree has \(k\) (\(0 \le k \le N - 1\)) internal nodes and
+      whose right subtree has \(N - 1 - k\) internal nodes.
+   2. By the inductive hypothesis, the left subtree has \(k + 1\) external nodes and
+      the right subtree has \(N - k\) internal nodes, for a total of \(N + 1\).
+
+-----
+
+Algorithms in C 226p
