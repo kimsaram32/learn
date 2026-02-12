@@ -1,0 +1,17 @@
+* 20250212 - Emacs Avy에 Colemak layout 적용하기 (short)
+** Avy
+Avy는 Emacs의 패키지 중 하나로, window-agnostic 하게 character
+기반으로 current buffer와 그것의 point를 움직일 수 있게 해 준다.
+** Customizing the keys to use Colemak layout
+Avy는 이동 가능한 위치를 특정 key들의 조합으로 표시하여, 사용자가
+입력한 조합에 대응되는 위치로 이동을 수행한다. =avy-keys= 옵션은
+조합에 사용할 키들을 지정한다.
+
+기본값은 QWERTY 자판에서 home row에 해당되는 키들이다. 그러나 나는
+현재 Colemak layout을 사용하고 있으므로, 이에 대응되도록 설정을
+변경해주었다.
+
+#+begin_src elisp
+  ;; the default is '(?a ?s ?d ?f ?g ?h ?j ?k ?l).
+  (setq avy-keys '(?a ?r ?s ?t ?d ?n ?e ?i ?o ?h))
+#+end_src
