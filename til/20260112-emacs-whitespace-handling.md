@@ -57,9 +57,9 @@ detailed 된 표시를 toggle할 수 있게 만들었다.
     (whitespace-mode 1)))
 ```
 
-![](./20250112-whitespace-basic.png)
+![](./20260112-whitespace-basic.png)
 
-![](./20250112-whitespace-detailed.png)
+![](./20260112-whitespace-detailed.png)
 
 ## Thoughts
 
