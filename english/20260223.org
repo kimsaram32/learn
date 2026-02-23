@@ -1,0 +1,29 @@
+* 20260223: Random writings
+LLM 피드백 이후 최종 결과물만 기록했다.
+
+It's hard to write in English after not using it for months. I feel
+like programming in a language that I once mastered but have now
+forgotten. I can't construct a single sentence with confidence. The
+sentences I've written so far, including this one, will turn out to be
+incorrect when I ask an LLM to review them.
+
+-----
+
+LLMs are my personal English assistants. If I had a human tutor I
+would gladly learn from them, but right now I'm afraid to ask somebody
+to be my mentor.
+
+-----
+
+Why am I writing this? Because I wanted to prove that I can still
+produce some English. It's okay to make mistakes, actually. I learn from
+them.
+
+-----
+
+It's always so painful to forget something. Especially the ones you
+invested so much time in mastering. For me it's the formal grammar
+of C. I used to read programs in it and analyze their syntax
+perfectly. It was so rewarding to understand how the whole grammar
+thing works... I loved the feeling of being a compiler and working
+precisely like a machine. But now I can't do that again.
