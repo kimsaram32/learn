@@ -1,0 +1,99 @@
+* 20260301
+A Month of Using Colemak
+
+It has been roughly a month since I started practicing Colemak. Here's
+what I've found:
+
+- I can't type QWERTY anymore. I have to relearn it, since I work on
+  other computers from time to time.
+- It's depressing a bit to forget years of muscle memory in just a
+  month. But relearning a thing is much cheaper than the first time of
+  learning it, so that relieves me.
+- I expected myself to still be able to type QWERTY at least on my
+  phone, but I can't do it neither. I thought my muscle memory would
+  be retained there, but it seems that I was wrong.
+- Unfortunately, I haven't found any good Colemak layout app for
+  iPhone, so I'm sticking with QWERTY for now. Should I build one by
+  myself?
+- [[https://monkeytype.com][Monkeytype]] is the best place for typing practice.
+
+-----
+
+- "so that relieves me"는 좀 더 자연스러운 표현으로 대체해야
+- "much cheaper"는 cost에 대한 관점으로 본 게 맞는데 이에 대해서 지적받았다.
+  explicit 하게 둬야 할 듯
+- "the first time of learning it"은 어색하다.
+  "learning it the first time" 으로 대체
+- "I can't do it neither" 는 grammatically incorrect...
+  neither의 사용을 왜 헷갈려햐지? 부정 표현 다시 배워오세요...
+- app에 대한 표현은 "for iPhone" 보다 "on iPhone" 이 더 맞는 듯
+
+-----
+
+A Month of Using Colemak
+
+It has been roughly a month since I started practicing Colemak. Here's
+what I've found:
+
+- I can't type QWERTY anymore. I have to relearn it, since I work on
+  other computers from time to time.
+- It's depressing a bit to forget years of muscle memory in just a
+  month. But the cost of relearning a thing is much cheaper than that
+  of learning it the first time, so that's comforting.
+- I expected myself to still be able to type QWERTY at least on my
+  phone, but I can't do it either. I thought my muscle memory would
+  be retained there, but it seems that I was wrong.
+- Unfortunately, I haven't found any good Colemak layout app on
+  iPhone, so I'm sticking with QWERTY for now. Should I build one by
+  myself?
+- [[https://monkeytype.com][Monkeytype]] is the best place for typing practice.
+
+-----
+
+- "depressing a bit" 보단 "a bit depressing"이 더 자연스럽다
+- "relearning a thing"에서 "a thing"이 약간 abstract 하다.
+  더 자연스러운 것을 기대한다.
+- "expected myself" 는 그냥 "expected" 로 하거나 "I thought ~~" 로 가야 함
+- "on iPhone"에는 소유격 필요함 - "on my iPhone"
+- "build one by myself" 는 isolation을 강조한다는데 나는 DIY 뉘앙스만 주고 싶었다.
+
+-----
+
+A Month of Using Colemak
+
+It has been roughly a month since I started practicing Colemak. Here's
+what I've found:
+
+- I can't type QWERTY anymore. I have to relearn it, since I work on
+  other computers from time to time.
+- It's a bit depressing to forget years of muscle memory in just a
+  month. But the cost of relearning something is much cheaper than
+  that of learning it the first time, so that's comforting.
+- I expected to still be able to type QWERTY at least on my phone, but
+  I can't do it either. I thought my muscle memory would be retained
+  there, but it seems that I was wrong.
+- Unfortunately, I haven't found any good Colemak layout app on
+  iPhone, so I'm sticking with QWERTY for now. Should I just build one
+  myself?
+- [[https://monkeytype.com][Monkeytype]] is the best place for typing practice.
+
+-----
+
+좀 더 native 하게 보일 표현들로 고쳐서 쓴 글
+
+A Month of Using Colemak
+
+It's been roughly a month since I switched to Colemak. Here's what
+I've found:
+
+- I can't type QWERTY anymore, which means I basically have to relearn
+  it since I occasionally work on other computers.
+- It's a bit depressing to lose years of muscle memory in just a
+  month. But relearning something is way cheaper than learning it from
+  scratch, so that's comforting.
+- I expected to still be able to type QWERTY at least on my phone, but
+  I can't do it either. I thought my muscle memory would be retained
+  there, but it turns out I was wrong.
+- Unfortunately, I haven't found any good Colemak app on iPhone, so
+  I'm sticking with QWERTY for now. Should I just build one myself?
+- [[https://monkeytype.com][Monkeytype]] is the best place for typing practice.
