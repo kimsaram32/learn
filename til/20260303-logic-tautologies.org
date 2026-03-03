@@ -1,0 +1,32 @@
+* Logic - Tautologies
+[[https://web.mit.edu/gleitz/www/Introduction%20to%20Logic%20-%20P.%20Suppes%20(1957)%20WW.pdf][Introduction to Logic - P. Suppes (1957)]] 을 공부하면서 정리한 내용이다.
+** 1. Tautologies
+tautology: Sentence S is a tautology if and only if the result of
+replacing the component atomic sentences of S by other atomic sentences is
+always true.
+** 2. Sentential interpretations
+The above definition can be rewritten using the concept of sentential
+interpretations.
+
+1. sentential interpretation: Sentence Q is a sentential
+   interpretation of sentence P if and only if Q results from P by
+   replacing the component atomic sentences of P by other sentences.
+2. atomic sentential interpretation: A sentential interpretation is
+   atomic if and only if each replacing sentence is atomic.
+3. tautology: Sentence S is a tautology if and only if all atomic
+   sentential interpretations of S are true.
+** Sufficient condition for logical consequences
+A sufficient condition for sentence Q being a logical consequence of
+sentence P is:
+
+The conditional \(P \to Q\) is a tautology.
+
+This can also be explained with the concept of sentential interpretations.
+1. Let us say Q is a logical consequence of P if and only
+   if all sentential interpretations of \(P \to Q\) are true.
+2. If all atomic sentential interpretations of \(P \to Q\) are true,
+   then all sentential interpretations of \(P \to Q\) are true.
+3. By (1) and (2), Q is a logical consequence of P if all atomic
+   sentential interpretations of \(P \to Q\) are true.
+4. In other words, Q is a logical consequence of P if \(P
+   \to Q\) is a tautology.
