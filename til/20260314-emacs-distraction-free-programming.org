@@ -1,0 +1,20 @@
+* 20260314 - Distraction-free programming in Emacs
+TypeScript + Eglot 기반으로 개발하고 있었는데,
+화면 shifting이 너무 자주 일어나서 distracting 했다.
+여러 가지를 고쳤다.
+** Eglot-specific issues
+- eldoc: echo area가 자꾸 왔다갔다 거리는 게 불편했다.
+  multiline을 disable 하여 해결: eldoc-echo-area-use-multiine-p.
+
+- highlighted symbol이 있는 line도 line height의 shifting 문제가 있었다.
+  face 문제인 줄 알았는데 그냥 Eglot 문제였다. eglot-code-action-indications 설정하여 해결.
+** general issues
+- 예전부터 느꼈던, side window popup 시 auto scrolling (info "(emacs) Auto Scrolling")
+  으로 인해 scroll position이 shift 하는 문제를 고쳤다.
+  scroll-conservatively, scroll-preserve-screen-position option을 사용했다.
+
+  LLM 도움을 받았는데 manual을 가리키더라. Just read the manuals...
+
+- 간혹 horizontally로도 약간의 shifting이 일어나는 경우가 있었는데,
+  원인 추적 끝에 display-line-numbers-mode의 width 문제였다.
+  display-line-numbers-width option으로 이를 고정하여 해결하였다.
