@@ -1,0 +1,41 @@
+* 20260331 - Configuring pinentry program for macOS
+** Motivation
+gpg에서의 passphrase 입력 인터페이스로 기본값인 console을 사용하고 있었다.
+
+때문에 terminal emulator (Wezterm, Emacs인 경우 vterm...) 을 사용하지 않으면
+passphrase 입력이 불가능해, Emacs의 =shell-command= 와 같은 형태로 gpg가 필요한
+program을 invoke 할 경우 e.g. =mbsync -a=, 사용이 불가능한 문제가 있었다.
+** How gpg reads the passphrase
+flow는 대강 이렇다 (source: official manual for GPG).
+
+1. gpg (and its related programs) uses gpg-agent for obtaining (secret) keys.
+2. gpg-agent uses a pinentry program to read passphrases.
+3. pinentry program can be customized via:
+   1. adding =pinentry-program= option in the configuration file
+   2. specifying it in the command-line options.
+** Changing the pinentry program
+이제 내 목표는 pinentry program을 변경하는 것이었고, macOS 상에서의 option을
+알아보니 대강 이랬다:
+
+1. =pinentry-mac=: macOS의 dialog UI 제공
+2. =pinentry-touchid=: 매번 passphrase를 입력하지 않아도 되도록 touch ID와
+   연동 + =pinentry-mac= 으로의 fallback ([[https://github.com/jorgelbg/pinentry-touchid][GitHub]])
+
+=pinentry-touchid= 를 사용해보려고 했으나 작동이 잘 되지 않았고, 굳이 시간을 더
+투자하고 싶지 않았기에 =pinentry-mac= 으로 만족하기로 했다.
+
+과정:
+
+#+begin_src sh
+  brew install pinentry-mac
+#+end_src
+
+=~/.gnupg/gpg-agent.conf=:
+#+begin_example
+pinentry-program /opt/homebrew/bin/pinentry-mac
+#+end_example
+
+Restarting the agent:
+#+begin_src sh
+  gnuconf --kill gpg-agent
+#+end_src
