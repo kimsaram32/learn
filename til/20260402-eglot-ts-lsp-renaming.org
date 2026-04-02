@@ -1,0 +1,87 @@
+* 20260402 - Eglot: TS LSP renaming support
+** 문제
+TypeScript code editing 시 file renaming operation이 제대로 handle 되지 않았다.
+specifically: import의 automatic update가 일어나지 않았다.
+
+현재는 Emacs의 Eglot을 사용 중이므로 이를 configure 할 필요가 있다.
+** 목표
+Eglot을 configure 하여, file rename 시 import의 auto fix를 달성하고 싶었다.
+** 정보
+LSP는 file operation을 어떻게 처리하는가? 에 대해서 알아보았다. 아직 더
+찾아봐야 하긴 함
+
+1. =didChangeWatchedFiles= notification [fn:1]: server에서 file change를 detect
+   하고 이에 맞게 행동할 수 있도록 한다. client에서 file system 관련
+   responsibility를 모두 담당하고 있다는 것을 전제로 한다.
+2. 이 외에도 여러 file operation 관련 notification이 있음 e.g. =willRenameFile=.
+   이는 workspace features에 해당한다.
+
+typescript-language-server 관련:
+
+1. TS LSP는 didChangeWatchedFile을 hande 하지 않는다 [fn:2]. 이유: tsserver에서
+   file operation을 직접 handle 하므로, client에서 notify 하는 구조가 필요
+   없다고 한다 (LSP spec에 따르면, 이는 recommended practice는 아니다. 다만
+   tsserver를 LSP server에서 건드릴 수는 없으니까 이러는 듯...).
+2. TS LSP server specific한 request로 =applyFileRename= 이 있다 [fn:3]. 이걸로
+   explicit 하게 rename을 handle 해 달라는 request를 보낼 수 있다.
+3. willRenameFile notification의 경우엔 previewing 등의 feature에 사용되는
+   것으로 보인다 [fn:4]. -> 이번 용도로는 적절하지 않다.
+** Eglot 설정
+일단 =applyFileRename= 을 call 하는 function을 구현했고, 이를 적용해주는 file
+renaming command를 만들어봤다.
+
+#+begin_src elisp
+  (defun sr/eglot-ts-handle-file-rename (server file new-name)
+    "Send the TS LSP command to SERVER handling the rename of FILE to NEW-NAME."
+    (eglot--request
+     server
+     :workspace/executeCommand
+     (list
+      :command "_typescript.applyRenameFile"
+      :arguments `[(
+                    :sourceUri ,(eglot-path-to-uri file)
+                    :targetUri ,(eglot-path-to-uri new-name))])))
+
+  (defun sr/eglot-ts-rename (new-name)
+    "Rename the visited file of the current TypeScript buffer to a new name."
+    (interactive (list (read-file-name "Set visited file name: "
+                                       default-directory
+                                       (expand-file-name
+                                        (file-name-nondirectory (buffer-name))
+                                        default-directory))))
+    (when-let* ((server (eglot--current-server-or-lose))
+                (old-file-name (buffer-file-name)))
+      (sr/eglot-ts-handle-file-rename server old-file-name new-name)
+      (rename-visited-file new-name)))
+#+end_src
+
+referencing files의 import는 잘 고쳐주는데 renaming 한 file 자체의 import는
+고쳐주지 않는다. 무엇이 문제인지는 모르겠다. rename 이전으로 LSP command를
+보내도록 고쳐봤는데 여전히 작동하지 않음.
+
+또한 Dired 상에서의 renaming 도 지원하기 위해, =dired-rename-file= 에 advice를
+다는 형태로 구현하려고 하였으나 계속 다음과 같은 오류가 발생하였다:
+
+#+begin_example
+cl--assertion-failed: Assertion failed: (memq id track-changes--trackers)
+#+end_example
+
+Dired specific issue 인 듯 하나 아직 고치지는 못했다.
+** Todo & Thoughts
+1. Eglot이 file change를 어떻게 처리하는지 더 알아보아야 한다.
+2. tsserver가 LSP를 지원하지 않으니 its capabilities를 모두 사용하지 못하고
+   있다. V7에서 LSP support 준비중이라는데 [fn:5] 제발요...
+3. tide [fn:6] 를 써야 할까.
+4. Emacs hacking 어렵다..
+** References
+[fn:1] https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#workspace_didChangeWatchedFiles
+
+[fn:2] https://github.com/typescript-language-server/typescript-language-server/issues/171
+
+[fn:3] https://github.com/typescript-language-server/typescript-language-server?tab=readme-ov-file#rename-file
+
+[fn:4] https://github.com/typescript-language-server/typescript-language-server/pull/685
+
+[fn:5] https://devblogs.microsoft.com/typescript/typescript-native-port/
+
+[fn:6] https://github.com/ananthakumaran/tide
