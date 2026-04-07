@@ -1,0 +1,45 @@
+* 20260407 - Emacs =browse-url= customization
+** Introduction
+Emacs의 =browse-url.el= 라이브러리는 다양한 browser function을 이용한 URL의
+visiting을 제공한다. 이를 customize 하였다.
+** 작동 방식
+*** =browse-url=
+=browse-url= 은 URL에 대한 browser function을 찾기 위해 다음을 순서대로
+시도한다.
+
+1. =browse-url-handlers= -- user-defined custom handlers 작성
+2. =browse-url-default-handlers= -- 3rd party packages 등에 사용되는 용도
+3. =browse-url-browser-function= -- 기본 browser function
+
+추가로, =browse-url-secondary-browser-function= 의 경우 prefix arg를 통해
+external을 지원하는 것들에서만 ad-hoc 적으로 사용된다.
+
+e.g.
+
+#+begin_src elisp
+  (if external
+      (funcall browse-url-secondary-browser-function url)
+    (browse-url url))
+#+end_src
+*** =browse-url-handlers=
+=browse-url-handlers= (와 =browse-url-default-handlers=) 에선 regex matching 기반
+rule을 사용한다.
+
+즉 특정 regex에 match 되는 URL에 대한 browser function을 지정할 수 있다.
+** Customziation
+다음과 같이 customize 하였다.
+
+1. Use eww by default -- =browse-url-browser-function=.
+2. prefix arg 적용 시 external browser를 사용한다 -- =browse-url-secondary-browser-function=.
+3. JavaScript 없이는 사용이 불가능한 것이 확실한 websites에 대해서도 external
+   browser를 사용하도록 설정한다 -- =browse-url-handlers=.
+
+#+begin_src elisp
+  (setq browse-url-browser-function #'eww-browse-url)
+  (setq browse-url-secondary-browser-function #'browse-url-default-browser)
+  (setq browse-url-handlers
+        '(("https://github.com" . browse-url-default-browser)))
+#+end_src
+
+regexp의 경우 현재는 그냥 string을 사용하는 상태이다... 잘 작동하긴 하나 좀 더
+generic 한 형식을 사용할 수도 있을 듯 하다.
