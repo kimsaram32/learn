@@ -1,0 +1,20 @@
+* 20260410 - Lisp_Object type
+Emacs의 Elisp의 C implementation에서, object의 내부적인 type은 =Lisp_Object= 이다.
+
+=Lisp_Object= 는 tagged pointer 타입이다. 즉 value 부분과 additional information을
+받는 bits 부분으로 이루어져 있다.
+
+** value 부분
+value는 pointer 또는 integer 이다.
+
+- pointer value의 경우, =XUNTAG= operation을 이용하여 추출한다.
+- integer value의 경우, =XINT= 등의 operation들을 이용하여 추출한다.
+
+** bits 부분
+- 3 bit로 이루어져 있다.
+- =Lisp_Type= 타입으로 데이터가 저장되며, object의 type을 구분하는 메커니즘 중 하나이다.
+- LSB 또는 MSB에 위치하는데, 이는 =USE_LSB_TAG= flag에 의해 결정된다.
+
+** Sources
+- info manual: (info "(elisp) Object Internals")
+- Emacs source code: src/lisp.h
