@@ -1,0 +1,105 @@
+* 20260415 - TypeORM Temporal API migration
+** 개요 & Context
+Nest.JS 프로젝트에서 TypeORM의 날짜/시간 관련 column을 =Date= 타입에서 Temporal
+API 기반 타입으로 변경하는 작업을 수행했다.
+
+TypeORM에서는 PostgreSQL driver를 사용중이었다.
+
+- [[https://github.com/mind-seed/mindseed/issues/106][Issue]]
+- [[https://github.com/mind-seed/mindseed/pull/107/changes/0e0778349933bd1b2efffa927adc86360d227356][Commit]]
+** Column type을 =Date= -> =Temporal.Instant= 로 변경
+새로운 column type은 =ZonedDateTime= (이하 zdt), =Instant= (이하 instant) 중
+하나를 선택하는 것으로 framing 했고 [fn:1], 최종적으로 instant을 선택했다.
+
+date field의 사용은 (1) timestamp 기록, (2) date operation 수행, 이렇게 2가지로
+나눌 수 있다는 전제하에, 근거는 다음과 같다.
+
+- 현재 date field들은 (1) 의, 단순 timestamp 기록 용도로 주로 사용되고 있다.
+  때문에 zdt 보다는 instant로 저장하는 것이 더 효과적이라고 판단했다.
+- 또한 zdt는 생성 시에 time zone을 명시해야 하는데... 이걸 config로 빼서 매번
+  inject 하는 건 verbose 하다.
+
+만약 (2) 의 용도가 필요한 경우가 생기면 그때는 instant -> zdt -> instant의
+flow를 쓰면 된다. 이런 경우가 발생한다고 해도 여전히 단순 timestamp 용도가 더
+많을 것이라고 판단했다.
+
+-----
+
+[fn:1] 각 type에 대한 설명: [[https://tc39.es/proposal-temporal/docs/ ][Temporal documentation]]
+** Driver 연동: TypeORM transformer 기능
+driver에서는 =Date= 형태만 consume 할 수 있으므로, TypeORM의 transformer 기능을
+사용해서 연동해주었다.
+
+transformer는 =from=, =to= 의 field를 accept 한다 [fn:2]. 각각은 다음과 같이
+call 된다 [fn:3].
+
+1. for persistence: =to= is called -> internal conversion logic
+2. for hydration: =from= is called -> internal conversion logic
+
+internal conversion logic에서는 =Date= 또는 =string= 을 expect 한다. 때문에 이에
+맞춰서 =Temporal= -> =Date= 로의 transformation을 진행해줬다.
+
+#+begin_src typescript
+  const temporalInstantTransformer = {
+    to: (
+      instant: Temporal.Instant | null | undefined,
+    ): Date | null | undefined => {
+      return instant != null
+        ? new Date(Number(instant.epochMilliseconds))
+        : instant;
+    },
+    from: (
+      instant: Date | string | null | undefined,
+    ): Temporal.Instant | null | undefined => {
+      return instant != null
+        ? Temporal.Instant.fromEpochMilliseconds(new Date(instant).getTime())
+        : instant;
+    },
+  };
+#+end_src
+
+-----
+
+[fn:2] [[https://typeorm.io/docs/entity/entities#column-options][TypeORM column options docs]]
+
+[fn:3] [[https://github.com/typeorm/typeorm/blob/master/src/driver/postgres/PostgresDriver.ts][TypeORM source code: PostgresDriver.ts]] 의 =preparePersistentValue= 와
+=prepareHydratedValue=
+
+** Custom decorator 작성
+위에서 설명한 column type 및 transformer를 쉽게 지정하기 위해 다음과 같은 형태의
+decorator 들을 작성했다. timestamp 관련 option을 통합해서 지정해준 간단한
+wrapper이다.
+
+#+begin_src typescript
+  export function TimestampColumn(options?: ColumnOptions): PropertyDecorator {
+    return Column({
+      type: "timestamptz",
+      ...options,
+      transformer: temporalInstantTransformer,
+    });
+  }
+#+end_src
+
+=CreateDateColumn=, =UpdateDateColumn= 에 대해서도 같은 방식으로 wrapper를 짰다.
+
+이후 다음과 같이 consume 한다.
+
+#+begin_src typescript
+  @Entity({ name: "user" })
+  export class User {
+    // ...
+
+    @CreateTimestampColumn({ name: "created_at" })
+    createdAt: Temporal.Instant;
+
+    // ...
+  }
+#+end_src
+
+이런 식의 wrapper는 PostgreSQL time/date type으로 =timestamptz= 만 사용된다는
+전제하에 잘 작동한다. 그리고 대충 PostgreSQL 문서를 뒤져본 결과 현재
+애플리케이션에선 그냥 =timestamptz= 만 사용해도 될 것 같다고 판단함 [fn:4].
+
+-----
+
+[fn:4] Docs: https://www.postgresql.org/docs/current/datatype-datetime.html
