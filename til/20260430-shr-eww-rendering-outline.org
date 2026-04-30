@@ -1,0 +1,69 @@
+* 20260430 - How headings are rendered in EWW/SHR
+
+** Motivation
+
+EWW를 통해 web browsing을 하던 도중 heading 기반으로 navigation을 하면
+편하겠다는 생각을 했고, 때문에 "browse by heading" 기능을 만들고 싶었다.
+
+이를 위해 "How headings are rendered in EWW/SHR"을 알아보기로 했다.
+
+** Tag rendering in SHR
+
+SHR에서 tag rendering for /TAG/ 는 대략 다음과 같이 작동한다:
+
+1. =shr-external-rendering-functions= 에서 TAG에 대한 entry가 있을 경우 해당
+   function을 call. EWW에서 이 functionality를 사용함
+2. (1)에서 entry가 없을 경우, =shr-tag-TAG= function을 사용한다.
+
+** Heading tags
+
+때문에 heading tag /HX/ 를 rendering 하는 경우엔 =shr-tag-hX= function을 사용하게
+된다. 해당 함수들은 내부적으로 =shr-heading= 을 사용한다.
+
+e.g. h1 tags는 =shr-tag-h1= 를 사용하며 이는 다음과 같다:
+
+#+begin_src elisp
+  (defun shr-tag-h1 (dom)
+    (shr-heading dom 'shr-h1))
+#+end_src
+
+** Outline is already supported
+
+이때 =shr-heading= 함수에서 =outline-level= text property를 지정함을 알 수 있었다 (*).
+
+#+begin_src elisp
+  (defun shr-heading (dom &rest types)
+    (shr-ensure-paragraph)
+    (let ((start (point))
+  	(level (string-to-number
+  		(string-remove-prefix "shr-h" (symbol-name (car types))))))
+     (apply #'shr-fontize-dom dom types)
+     (put-text-property start (pos-eol) 'outline-level level)) ;; (*)
+    (shr-ensure-paragraph))
+#+end_src
+
+outline에 대한 support인 것으로 보여서 더 뜯어보니, EWW에서 outline search에
+사용되는 함수인 =outline-search-function= 을 =shr-outline-search= 로 override
+함을 찾을 수 있었다. 여기서 위의 =outline-level= property가 사용된다.
+
+#+begin_src elisp
+  (define-derived-mode eww-mode special-mode "eww"
+    ;; ...
+    (setq-local outline-search-function 'shr-outline-search
+                outline-level 'shr-outline-level)
+    ;; ...)
+#+end_src
+
+** Conclusion
+
+SHR and EWW already have built-in support for outline (or outline minor mode).
+
+따라서 내가 달성하고자 했던 browse by heading은 outline minor mode를
+사용함으로써 간단하게 가능하다.
+
+** Thoughts
+
+- outline, imenu와 같은 built-in features들을 더 익혀놔야겠다. EWW, SHR와 같은 좀
+  더 high-level 적인 tool들이 이런 기능들과의 integration을 잘 지원하니까,,
+- source code를 뜯을 때 overview를 먼저 해야겠다. 이번 경우에는... shr.el에서
+  대놓고 "Outline support" section이 있었지만 처음에 보지 못했다.
