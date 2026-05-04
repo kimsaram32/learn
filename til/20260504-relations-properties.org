@@ -1,0 +1,53 @@
+* 20260504 - Relations and its properties
+
+[[https://web.mit.edu/gleitz/www/Introduction%20to%20Logic%20-%20P.%20Suppes%20(1957)%20WW.pdf][Introduction to Logic - P. Suppes (1957)]] Chapter 9 배우면서 정리한 것들
+
+** Relations
+
+An n-ary relation is a set of ordered n-tuples.
+
+e.g. A binary relation is a set of ordered couples.
+
+** Properties of relations
+
+Let \(R\) be a relation and \(A\) a set.
+
+*** Reflexivity
+
+- \(R\) is /reflexive/ in \(A\) if and only if:
+  \((x)(x \in A \to \langle x, x \rangle \in R)\).
+
+- \(R\) is /irreflexive/ in \(A\) if and only if:
+  \((x)(x \in A \to \langle x, x \rangle \notin R)\).
+
+*** Symmetry
+
+- \(R\) is /symmetric/ in \(A\) if and only if:
+  \((x)(y)(x \in A \land y \in A \land \langle x, y \rangle \in R \to \langle y, x \rangle \in R)\).
+
+- \(R\) is /asymmetric/ in \(A\) if and only if:
+  \((x)(y)(x \in A \land y \in A \land \langle x, y \rangle \in R \to \langle y, x \rangle \notin R)\).
+
+- \(R\) is /antisymmetric/ in \(A\) if and only if:
+  \((x)(y)(x \in A \land y \in A \land \langle x, y \rangle \in R \land \langle
+  y, x \rangle \in R \to x = y)\).
+
+*** Transivity
+
+- \(R\) is /transitive/ in \(A\) if and only if:
+  \((x)(y)(z)(x \in A \land y \in A \land z \in A \land \langle x, y \rangle \in
+  R \land \langle y, z \rangle \in R \to \langle x, z \rangle \in R)\).
+
+- \(R\) is /intransitive/ in \(A\) if and only if:
+  \((x)(y)(z)(x \in A \land y \in A \land z \in A \land \langle x, y \rangle \in
+  R \land \langle y, z \rangle \in R \to \langle x, z \rangle \notin R)\).
+
+*** Connectivity
+
+- \(R\) is /connected/ in \(A\) if and only if:
+  \((x)(y)(x \in A \land y \in A \land x \ne y \to \langle x, y \rangle \in R
+  \lor \langle y, x \rangle \in R)\).
+
+- \(R\) is /strongly connected/ in \(A\) if and only if:
+  \((x)(y)(x \in A \land y \in A \to \langle x, y \rangle \in R \lor \langle y, x \rangle \in R)\).
+
