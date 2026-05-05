@@ -1,5 +1,9 @@
 # 20260505 - Alternative Group Theory: Existence of the right-hand identity element
 
+## Notes
+
+추가: Latex 포맷팅 넣으려고 마크다운으로 올렸는데 안들어간다;;... 나중에 해결해야지
+
 ## Problem
 
 [[https://web.mit.edu/gleitz/www/Introduction%20to%20Logic%20-%20P.%20Suppes%20(1957)%20WW.pdf][Introduction to Logic - P. Suppes (1957)]]
