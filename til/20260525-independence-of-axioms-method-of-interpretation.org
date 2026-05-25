@@ -1,0 +1,37 @@
+* 20260525 - Showing the mutual of axioms by the method of interpretation
+
+** Intuitive explanation
+
+To show the mutual independence of axioms in a theory by the method of
+interpretation:
+
+for each axiom, find an interpretation such that the axiom is false and the
+remaining axioms are true in this interpretation [fn:1].
+
+[fn:1] Patrick Suppes, "Introduction to Logic", p. 70 
+
+** Formalization attempt
+
+사실 trivial 이긴 한데 그냥 시도해봄
+
+1. A formula \(P\) is independent of a formula \(Q\) iff there exists a false
+   interpretation of \(Q \to P\) with respect to some non-empty domain of
+   individuals.
+
+2. A set of axioms \(\mathscr{P}\) is mutually independent iff for every axiom \(x\)
+   in \(\mathscr{P}\), \(x\) is independent of the conjunction of \(\mathscr{P}
+   \setminus \{x\}\).
+
+3. Using the rule of logical equivalence, from (1) and (2) we immediately obtain
+   the following:
+
+   A set of axioms \(\mathscr{P}\) is mutually independent iff for every axiom
+   \(x\) in \(\mathscr{P}\), there exists a false interpretation of
+   \(\mathscr{P} \setminus \{x\} \to x\) with respect to some non-empty domain
+   of individuals.
+
+4. end of formal justification. 이를 intuitive 하게 translate 하면 위의 "for
+   every axiom~~" 이라는 method를 obtain 할 수 있다.
+
+(2)에서... Axioms를 mathematical object로 대하는 부분, conjunction을
+operation으로 대하는 것에서 accepted definition 인지는 모르겠다.
