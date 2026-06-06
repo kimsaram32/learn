@@ -2,6 +2,9 @@
 
 Started reading on 2026-02-04.
 
+- 2026-06-06
+  - § 4.5: Proved one more theorem in Problem 9.
+  - § 12.3: Completed the whole section. Proved 3 theorems.
 - 2026-06-05
   - § 4.5: Proved 4 theorems in problem 9.
   - § 12.3: Read through pp. 260-265. Struggled to understand the proof
