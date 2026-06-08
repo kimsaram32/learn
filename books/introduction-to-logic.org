@@ -2,6 +2,9 @@
 
 Started reading on 2026-02-04.
 
+- 2026-06-08
+  - § 12.3: Continued working on the theorem from yesterday. Still no meaningful
+    progress. Unlike at home, I have no dedicated time to do math in school...
 - 2026-06-07
   - § 12.2: Tried to prove one theorem.
   - § 12.3: Tried one theorem here too.
