@@ -2,6 +2,12 @@
 
 Started reading on 2026-02-04.
 
+- 2026-06-09
+  - § 8.9: Proved some Boolean algebra identities I hadn't solved the last time.
+    Trivial ones were easy, but I couldn't figure out how to prove the
+    associative laws and De Morgan's Laws.
+  - § 12.3: Same as yesterday.
+  - § 12.4: Read the entire section. Proved some theorems while reading.
 - 2026-06-08
   - § 12.3: Continued working on the theorem from yesterday. Still no meaningful
     progress. Unlike at home, I have no dedicated time to do math in school...
