@@ -2,6 +2,10 @@
 
 Started reading on 2026-02-04.
 
+- 2026-06-10
+  - § 8.9: Finally proved associative laws, using an answer on Stack Exchange as
+    a hint.
+  - § 12.4: Re-read the section to have a clearer picture.
 - 2026-06-09
   - § 8.9: Proved some Boolean algebra identities I hadn't solved the last time.
     Trivial ones were easy, but I couldn't figure out how to prove the
