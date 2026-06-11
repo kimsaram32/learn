@@ -2,6 +2,8 @@
 
 Started reading on 2026-02-04.
 
+- 2026-06-11
+  - § 8.9: Proved De Morgan's Laws, with a help from ChatGPT.
 - 2026-06-10
   - § 8.9: Finally proved associative laws, using an answer on Stack Exchange as
     a hint.
