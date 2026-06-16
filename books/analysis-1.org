@@ -1,0 +1,13 @@
+* Analysis 1 by Terence Tao
+
+Started reading on 2026-06-14.
+
+- 2026-06-16
+  - § 2.2: Read pp. 26-27.
+- 2026-06-15
+  - § 2.2: Read pp. 24-26. Tried to prove all the propositions/theorems by
+    myself before reading them.
+- 2026-06-14
+  - § 2.1: Read the whole section. Focused on the construction of the Peano
+    axioms. Encountered the recursion theorem and sketched out the proof idea.
+
