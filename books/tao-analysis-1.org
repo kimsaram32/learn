@@ -1,0 +1,112 @@
+* Analysis 1 by Terence Tao
+
+Started reading on 2026-06-14.
+
+- 2026-06-17
+  - § 2.2: Did Exercises 2.2.3 and 2.2.4. I have to revisit 2.2.4 tomorrow. I
+    didn't solve many problems today, as I spent some time practicing
+    mathematical prose and English instead.
+- 2026-06-16
+  - § 2.2: Read pp. 26-27.
+- 2026-06-15
+  - § 2.2: Read pp. 24-26. Tried to prove all the propositions/theorems by
+    myself before reading them.
+- 2026-06-14
+  - § 2.1: Read the whole section. Focused on the construction of the Peano
+    axioms. Encountered the recursion theorem and sketched out the proof idea.
+
+** My solutions for exercises
+
+I'm practicing proof writing as well as problem solving here, so the writing
+style can vary from one solution to another.
+
+*** Exercise 2.2.3
+
+**** (a) \(a \ge a\).
+
+Proof. We seek an m such that \(a = a + m\). Clearly 0 is such an \(m\), and
+hence \(a \ge a\).
+
+**** (b) If \(a \ge b\) and \(b \ge c\), then \(a \ge c\).
+
+Proof. Let \(m\) and \(n\) be natural numbers such that \(a = b + m\) and \(b =
+c + n\).
+Then we have \(a = (c + n) + m\).
+By the associative law for addition, \(a = c + (n + m)\).
+Therefore \(a \ge c\).
+
+**** (c) If \(a \ge b\) and \(b \ge a\), then \(a = b\).
+
+Proof. Let \(m\) and \(n\) be natural numbers such that \(a = b + m\) and \(b =
+a + n\).
+Then we have \(a = (a + n) + m\) and \(a = a + (n + m)\), and so \(n +
+m\) must be zero.
+Thus \(n = m = 0\) by Corollary 2.2.9. Substituting \(0\) for \(m\) into \(a =
+b + m\), we conclude that \(a = b\).
+
+***** Lemma. If \(a + m = a\) then \(m = 0\).
+
+Proof. \(a + m = a = a + 0\). Using the cancellation law gives \(m = 0\).
+
+**** (d) \(a \ge b\) iff \(a + c \ge b + c\).
+
+Proof.
+
+***** (i) If \(a \ge b\) then \(a + c \ge b + c\).
+
+Let \(a = b + m\) for some natural number \(m\). Then \(a + c = (b + c) + m\),
+hence \(a + c \ge b + c\).
+
+***** (ii) If \(a + c \ge b + c\) then \(a \ge b\).
+
+Since \(a + c \ge b + c\), there exists a natural number m such that \(a + c =
+(b + c) + m\).
+Then \(a + c = (b + m) + c\). By the cancellation law \(a = b +
+m\). Hence \(a \ge b\).
+
+**** (e) \(a < b\) iff \(a \textt{++} \le b\).
+
+Proof. First, suppose \(a < b\). Then there exists a natural number \(m\) such
+that
+
+\[b = a + m\]
+
+Since \(a < b\) implies \(a \ne b\), \(m \ne 0\). Thus by Lemma 2.2.10, there is
+a natural number \(n\) such that \(n \textt{++} = m\). Hence
+
+\[
+b = a + (n \textt{++}) = (a + n)\textt{++} = (a \textt{++}) + n
+\]
+
+Therefore \(a \textt{++} \le b\).
+
+Conversely, suppose that \(a \textt{++} \le b\). Let \(m\) be a natural number
+such that \(b = (a \textt{++}) + m\). Then
+
+\[
+b = (a \textt{++}) + m = (a + m)\textt{++} = a + (m \textt{++})
+\]
+
+Suppose, for contradiction, that \(a = b\). Then
+
+\[
+a = a + (m \textt{++})
+\]
+
+and cancelling a gives \(m \textt{++} = 0\). But that contradicts Axiom 2.3,
+which says \(m \textt{++} \ne 0\). Thus \(a \ne b\).
+
+Since \(b = a + (m \textt{++})\), we conclude that \(a < b\).
+
+**** (f) \(a < b\) iff \(b = a + d\) for some positive number \(d\).
+
+Proof. First, assume that \(a < b\). Then \(b = a + d\) for some natural
+number \(d\). Suppose, for contradiction, that \(d = 0\). then \(b = a + 0 = a\),
+contradicting the fact that \(a \ne b\). Hence \(d \ne 0\), and we conclude
+\(d\) is positive.
+
+Conversely, assume that \(b = a + d\) for some positive number \(d\).
+If \(a =
+b\), \(d = 0\) by the same argument used in (e),
+contradicting the fact that \(d
+\ne 0\). Thus \(a \ne b\) and we conclude that \(a < b\).
