@@ -110,3 +110,27 @@ If \(a =
 b\), \(d = 0\) by the same argument used in (e),
 contradicting the fact that \(d
 \ne 0\). Thus \(a \ne b\) and we conclude that \(a < b\).
+
+*** Exercise 2.2.4
+
+Proposition 2.2.13. Let \(a\) and \(b\) be natural numbers. Then exactly one of
+the following statements is true: \(a < b\), \(a = b\), \(a > b\).
+
+Proof. We first prove that at most one of the statements is true. If \(a = b\),
+by definition \(a < b\) and \(a > b\) is false. If \(a < b\) or \(a > b\), then
+by definition \(a \ne b\). Finally, if \(a < b\) and \(a > b\), then \(a = b\)
+by Proposition 2.2.12.(c), a contradiction. Hence at most one of the statements
+is true.
+
+We now prove that at least one of the statements is true. We proceed by
+induction on \(a\). Consider the base case \(a = 0\). Since \(b = 0 + b\), we
+have \(0 \le b\) for all \(b\). Thus either \(0 < b\) or \(0 = b\), and the base
+case is done. Now suppose inductively that \(a < b \lor a = b \lor a > b\). We
+need to show that the proposition still holds on \(a \textt{++}\). If \(a = b\), we have
+\(a \textt{++} = b \textt{++} = b + 1\). Since \(a \textt{++} \ne b\), \(a
+\textt{++} > b\). If \(a < b\), \(a \textt{++} \le b\) by Proposition
+2.2.12.(e). Then either \(a \textt{++} < b\) or \(a \textt{++} = b\), and in
+either case we are done. Finally, if \(a > b\) then for some natural number
+\(m\), \(a = b + m\). Now \(a \textt{++} = (b + m) \textt{++} = b + (m
+\textt{++})\). Hence \(a \textt{++} > b\).
+This closes the induction.
