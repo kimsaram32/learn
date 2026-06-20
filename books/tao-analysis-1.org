@@ -2,6 +2,11 @@
 
 Started reading on 2026-06-14.
 
+- 2026-06-20
+  - § 2.2: Did Exercise 2.2.4. Looking up the hint immediately led to a
+    solution (although I wanted to prove it by myself...).
+- 2026-06-19
+  - § 2.2: Worked on Exercise 2.2.4, continuing from yesterday.
 - 2026-06-17
   - § 2.2: Did Exercises 2.2.3 and 2.2.4. I have to revisit 2.2.4 tomorrow. I
     didn't solve many problems today, as I spent some time practicing
@@ -134,3 +139,87 @@ either case we are done. Finally, if \(a > b\) then for some natural number
 \(m\), \(a = b + m\). Now \(a \textt{++} = (b + m) \textt{++} = b + (m
 \textt{++})\). Hence \(a \textt{++} > b\).
 This closes the induction.
+
+*** Exercise 2.2.5.
+
+Proposition 2.2.14 (Strong principle of induction). Let $m_0$ be a natural number,
+and let $P(m)$ be a property pertaining to an arbitrary natural number $m$.
+Suppose that for each $m \geq m_0$, we have the following implication:
+If $P(m')$ is true for all natural numbers $m_0 \leq m' < m$, then $P(m)$ is also true.
+(In particular, this means that $P(m_0)$ is true, since in this case the hypothesis is vacuous.)
+Then $P(m)$ is true for all natural numbers $m \geq m_0$.
+
+The solution became unnecessarily long here because I tried to give a different
+proof for each lemma.
+
+**** Lemma a. \(a \ne 0 \to \exists m(N(m) \land a = 1 + m)\).
+
+Proof. Since \(a\) is positive, by Lemma 2.2.10 there exists a natural number
+\(m\) such that \(a = m\textt{++}\). Then we have
+\(a = m\textt{++} = 0 +
+m\textt{++} = (0 + m)\textt{++} = (0\textt{++}) + m = 1 + m\).
+
+**** Lemma b. \(m \ne 0 \land n \ne 0 \to m + n \ne 1\).
+
+Proof 1. Suppose \(m + n = 1\). by Lemma 2.2.10, there exist natural numbers
+\(p\) and \(q\) such that \(p\textt{++} = m\) and \(q\textt{++} = n\). then
+\(m + n = (p\textt{++}) + (q\textt{++}) = ((p + q)\textt{++})\textt{++} = 1 =
+0\textt{++}\). by Axiom 2.4. we infer \((p + q)\textt{++} = 0\), contradicting
+axiom 2.3., i.e., \((p + q) \ne 0\). hence \(m + n \ne 1\).
+
+Proof 2. Suppose \(m + n = 1\). by Lemma 2.2.10, there exists a natural number
+\(p\) such that \(p\textt{++} = m\). then \(m + n = (p\textt{++}) + n = (p +
+n)\textt{++} = 1 = 0\textt{++}\).
+by axiom 2.4 we infer \(p + n = 0\). but since \(n\) is positive, \(p + n \ne
+0\) By Proposition 2.2.8,
+a contradiction. Hence \(m + n \ne 1\).
+
+**** Lemma c. \(a < b\textt{++} \land a \ne b \to a < b\).
+
+Proof 1 (direct). By Proposition 2.2.12.(f), \(b\textt{++} = a + n\) for some
+positive number \(n\). Since \(n\) is positive, by Lemma a there exists an \(m\)
+such that \(n = m + 1\). Now \(b \textt{++} = b + 1 = a + n = a + (m + 1) =
+(a + m) + 1\).
+Cancelling 1 from both sides yields \(b = a + m\). Thus \(b \ge a\).
+Since we also have \(a \ne b\), we conclude that \(b > a\).
+
+Proof 2 (indirect). Suppose \(a < b\) is false. Then by Proposition 2.2.13, \(a
+> b\) must hold.
+Now choose two positive numbers \(n\) and \(m\) such that \(b\textt{++} = a +
+n\) and \(a = b + m\).
+Now \(b\textt{++} = b + 1 = a + n =
+(b + m) + n = b + (m + n)\).
+Cancelling \(b\) from both sides gives \(m + n =
+1\). But this contradicts Lemma b, since \(m\) and \(n\) are both positive.
+Hence \(b > a\).
+
+**** Proof
+
+Proof. Let \(Q(n)\) be the property that \(P(m)\) is true for all \(m_0 \le m <
+n\).
+We prove by induction that \(Q(n)\) is true for every natural number \(n\).
+
+If \(n = 0\) then \(Q(0)\) is vacuously true, since there's no \(m\) such that \(m <
+0\).
+
+Now suppose inductively that \(Q(n)\). Let \(m\) satisfy \(m_0 \le m < n\textt{++}\).
+We must show \(P(m)\). We can think of two cases here: \(m = n\)
+and \(m \ne n\).
+
+First, consider the case \(m = n\). Notice that by the inductive hypothesis,
+\(P(m^{\prime})\) for all \(m_0 \le m^{\prime} < n\). It follows that \(P(n)\), i.e., \(P(m)\),
+from the hypothesis of the theorem, and we are done.
+
+Now if \(m \ne n\), by Lemma c \(m < n\). Thus by the inductive hypothesis we
+infer that \(P(m)\).
+
+This closes the induction, and we have proven that \(Q(n)\) holds for every
+natural number \(n\).
+
+Using this result, we now show the conclusion of the theorem, that is, \(P(m)\)
+for all \(m \ge m_0\). For every natural number \(m \ge m_0\),
+\(Q(m\textt{++})\) holds, since \(m\textt{++}\) is a natural number.
+Together with the fact that \(m_0 \le m < m\textt{++}\), we conclude that
+\(P(m)\). This demonstrates the strong principle of induction.
+
+
