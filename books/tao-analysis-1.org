@@ -2,11 +2,14 @@
 
 Started reading on 2026-06-14.
 
+- 2026-06-21
+  - § 2.2: Completed Exercise 2.2.6. Sketched out all proofs for Section 2.3, and
+    plan to write them up next week.
 - 2026-06-20
-  - § 2.2: Did Exercise 2.2.4. Looking up the hint immediately led to a
+  - § 2.2: Did Exercise 2.2.5. Looking up the hint immediately led to a
     solution (although I wanted to prove it by myself...).
 - 2026-06-19
-  - § 2.2: Worked on Exercise 2.2.4, continuing from yesterday.
+  - § 2.2: Worked on Exercise 2.2.5, continuing from yesterday.
 - 2026-06-17
   - § 2.2: Did Exercises 2.2.3 and 2.2.4. I have to revisit 2.2.4 tomorrow. I
     didn't solve many problems today, as I spent some time practicing
@@ -222,4 +225,124 @@ for all \(m \ge m_0\). For every natural number \(m \ge m_0\),
 Together with the fact that \(m_0 \le m < m\textt{++}\), we conclude that
 \(P(m)\). This demonstrates the strong principle of induction.
 
+*** Exercise 2.2.6.
 
+Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the
+natural numbers such that whenever $P(m++)$ is true, then $P(m)$ is true.
+Suppose that $P(n)$ is also true. Prove that $P(m)$ is true for all natural
+numbers $m \leq n$; this is known as the principle of backwards induction.
+
+**** Initial solution
+
+***** Lemma. If \(m \le 0\) then \(m = 0\).
+
+Proof. Let \(m \le 0\). By definition \(0 = m + n\) for some natural number
+\(n\). But by Corollary 2.2.9, \(m\) and \(n\) must both be zero. Hence \(m = 0\).
+
+***** Solution
+
+We induct on \(n\). We first prove the principle holds on \(n = 0\). Let m be a
+natural number such that \(m \le 0\). Then \(m\) must be \(0\), and from \(P(0)\) we
+immediately obtain that \(P(m)\).
+
+Now suppose inductively that the principle holds on \(n\). We have to prove the
+principle on \(n\textt{++}\). We first obtain the conclusion of the inductive
+hypothesis. We have \(P(n\textt{++})\), so we infer \(P(n)\) from the
+hypothesis. we have the requirements of backwards induction on n, and thus
+\(P(m)\) is true for every natural number \(m \le n\).
+
+Now let \(m\) be a natural number such that \(m \le n\textt{++}\). If \(m =
+n\textt{++}\),
+then \(P(n\textt{++})\), i.e., \(P(m)\) and we are done.
+Otherwise, \(m \le n\) and from the earlier result we obtain \(P(m)\). This
+closes the induction, and we have demonstrated the principle of backwards
+induction.
+
+**** Solution with revised writing & structure
+
+Using the same lemma as above.
+
+Let \(Q(n)\) be the property that: "if \(P(n)\) is true, then \(P(m)\) is true for
+all \(m \le n\)". We prove \(Q(n)\) for every natural number \(n\), using induction.
+
+Consider the base case \(n = 0\). Let \(m \le 0\). Then \(m\) must be \(0\) by
+the above lemma, and since \(P(0)\), we conclude that \(P(m)\).
+
+Suppose inductively that \(Q(n)\). We have to prove \(Q(n\textt{++})\). From
+\(P(n\textt{++})\) and the definition of \(P\), we have \(P(n)\). Thus by the
+inductive hypothesis, \(P(m)\) for all \(m \le n\).
+
+Now let \(m\) be a natural number such that \(m \le n\textt{++}\). If \(m =
+n\textt{++}\),
+then we subtitute \(m\) for \(n\textt{++}\) in \(P(n\textt{++})\), and we are done.
+Otherwise, \(m \le n\) and thus \(P(m)\). This closes the induction.
+
+*** The product of two natural numbers is a natural number.
+
+Proof. Let \(n\), \(m\) be natural numbers. We induct on \(n\), keeping \(m\)
+fixed.
+
+The base case is obvious, since \(0 \cdot m = 0\), and \(0\) is a natural
+number.
+
+Now suppose inductively that \(n \cdot m\) is a natural number. Then
+\((n\textt{++}) \cdot m = (n \cdot m) + n\) by Definition 2.3.1.
+Since \(n \cdot
+m\) and \(m\) are natural numbers, \((n \cdot m) + n\) is so by the property of
+addition. This closes the induction.
+
+*** Exercise 2.3.1.
+
+Lemma 2.3.2 (Multiplication is commutative). Let \(n\), \(m\) be natural
+numbers. Then \(n \cdot m = m \cdot n\).
+
+**** Lemma. \(n \cdot 0 = 0\).
+
+Proof. We prove by induction. The base case \(0 \cdot 0 = 0\) is straightforward
+from the definition. Now if \(n \cdot 0 = 0\), then \((n\textt{++}) \cdot 0 = (n
+\cdot 0) + 0 = 0 + 0 = 0\).
+
+**** Lemma. \(m \cdot (n\textt{++}) = (m \cdot n) + m\).
+
+Proof. We use induction on \(m\). For the base case, by definition of multiplication we
+have \(0 \cdot (n\textt{++}) = 0 = 0 + 0 = (0 \cdot n) + 0\), and we are
+done.
+
+Now suppose inductively that \(m \cdot (n \textt{++}) = (m \cdot n) + m\). Then
+by definition of multiplication
+
+\[
+(m\textt{++}) \cdot (n\textt{++}) = (m \cdot (n\textt{++})) + n\textt{++}
+= (m \cdot n + m) + n\textt{++}
+\]
+
+And the properties of addition gives
+
+\[
+(m \cdot n + m) + n\textt{++}
+= m \cdot n + (m + n) \textt{++}
+= m \cdot n + n + (m\textt{++})
+\]
+
+Finally, applying the definition of multiplication we obtain
+
+\((m\textt{++}) \cdot n + m\textt{++}\).
+
+Thus \((m \textt{++}) \cdot (n\textt{++}) = (m\textt{++}) \cdot n + m\textt{++}\).
+This closes the induction.
+
+**** Solution
+
+We induct on \(n\). Consider the base case \(n = 0\). Then by definition of
+multiplication and the first lemma, \(0 \cdot m = 0 = m \cdot 0\).
+
+Now we prove the inductive step \((n \textt{++}) \cdot m = m \cdot
+(n\textt{++})\).
+We start from the inductive hypothesis \(n \cdot m = m \cdot
+n\).
+We add \(m\) to both sides and obtain \((n \cdot m) + m = (m \cdot n) +
+m\).
+By definition, LHS is equal to \((n\textt{++}) \cdot m\). Also, the above
+lemma says that \((m \cdot n) + m\) is equal to \(m \cdot (n\textt{++})\). Thus
+we conclude that \((n\textt{++}) \cdot m = m \cdot (n\textt{++})\), and this
+closes the induction.
