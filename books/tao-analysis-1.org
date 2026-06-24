@@ -2,6 +2,10 @@
 
 Started reading on 2026-06-14.
 
+- 2026-06-24
+  - § 2.3: Proved 2.3.4.
+- 2026-06-22
+  - § 2.3: Proved 2.3.3.
 - 2026-06-21
   - § 2.2: Completed Exercise 2.2.6. Sketched out all proofs for Section 2.3, and
     plan to write them up next week.
@@ -346,3 +350,50 @@ By definition, LHS is equal to \((n\textt{++}) \cdot m\). Also, the above
 lemma says that \((m \cdot n) + m\) is equal to \(m \cdot (n\textt{++})\). Thus
 we conclude that \((n\textt{++}) \cdot m = m \cdot (n\textt{++})\), and this
 closes the induction.
+
+*** Exercise 2.3.2
+
+Lemma 2.3.3 (Positive natural numbers have no zero divisors). Let \(n\), \(m\)
+be natural numbers. Then \(n \cdot m = 0\) if and only if at least one of \(n\),
+\(m\) is equal to zero. In particular, if \(n\) and \(m\) are both positive,
+then \(nm\) is also positive.
+
+Proof. First, suppose that \(n = 0 \lor m = 0\). If \(n = 0\), then by
+Definition 2.3.1 \(n \cdot m = 0 \cdot m = 0\). Otherwise, \(m = 0\), and
+\(m \cdot n = 0\) by the same argument. Since multiplication is commutative,
+that leads to \(n \cdot m = 0\).
+
+Conversely, suppose that \(nm = 0\), and for contradiction both \(n\) and \(m\)
+are positive. Then by Lemma 2.2.10, \(n = p\textt{++}\) for some natural \(p\).
+Now \(n \cdot m = (p\textt{++}) \cdot m\), and by definition of multiplication
+\(n \cdot m = p \cdot m + m\). Since \(n \cdot m = 0\), we have \(p \cdot m + m = 0\).
+By Corollary 2.2.9 it follows that \(m = 0\), a contradiction.
+Thus at least one of \(n\) and \(m\) must be zero.
+
+*** Proposition 2.3.4
+
+Proposition 2.3.4 (Distributive Law). For any natural numbers \(a\), \(b\),
+\(c\), we have \(a(b + c) = ab + ac\) and \((b + c)a = ba + ca\).
+
+Proof. Since multiplication is commutative, we only have to show the first
+identity. We induct on \(a\), keeping \(b\) and \(c\) fixed.
+
+For the base case \(a = 0\), we have the following identities:
+
+\(0(b + c) = 0 = 0 + 0 = 0b + 0c\)
+
+Hence the base case is done.
+
+Now suppose inductively that \(a(b + c) = ab + ac\). Then
+
+\begin{equation*}
+\begin{align*}
+(a\textt{++})(b + c) & = a(b + c) + b + c & \text{Definition of multiplication} \\
+& = (ab + ac) + b + c & \text{Inductive hypothesis} \\
+& = (ab + b) + (ac + c) & \text{Commutativity and associativity of addition} \\
+& = (a\textt{++})b + (a\textt{++})c & \text{Definition of multiplication}
+\end{align*}
+\end{equation*}
+
+This proves the inductive step, and thus \(a(b + c) = ab + ac\) for all natural
+numbers \(a\), \(b\), \(c\).
