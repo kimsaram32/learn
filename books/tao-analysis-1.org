@@ -2,6 +2,8 @@
 
 Started reading on 2026-06-14.
 
+- 2026-06-26
+  - § 2.3: Proved Proposition 2.3.6 and Corollary 2.3.7.
 - 2026-06-24
   - § 2.3: Proved 2.3.4.
 - 2026-06-22
@@ -397,3 +399,39 @@ Now suppose inductively that \(a(b + c) = ab + ac\). Then
 
 This proves the inductive step, and thus \(a(b + c) = ab + ac\) for all natural
 numbers \(a\), \(b\), \(c\).
+
+*** Exercise 2.3.3
+
+Proposition 2.3.5 (Multiplication is associative). For any natural numbers
+\(a\), \(b\), \(c\), we have \((a \cdot b) \cdot c = a \cdot (b \cdot c)\).
+
+Proof. We use induction on \(a\). The base case \(a = 0\) is straightforward:
+both \((0 \cdot b) \cdot c\) and \(0 \cdot (b \cdot c)\) are equal to \(0\) by the definition of multiplication.
+
+Now suppose inductively that \((a \cdot b) \cdot c = a \cdot (b \cdot c)\).
+We need to show that \(((a\textt{++}) \cdot b) \cdot c = (a\textt{++}) \cdot (b \cdot c)\).
+The left-hand side is \((a \cdot b + b) \cdot c\) by definition, which is by distributive law
+equal to \((a \cdot b) \cdot c + b \cdot c\). The right-hand side is
+\(a \cdot (b \cdot c) + b \cdot c\). But by the inductive hypothesis \((a \cdot b) \cdot c = a \cdot (b \cdot c)\),
+so we conclude that both sides are equal. This closes the induction.
+
+*** Proposition 2.3.6
+
+Proposition 2.3.6 (Multiplication preserves order). If \(a\), \(b\) are natural
+numbers such that \(a < b\), and \(c\) is positive, then \(ac < bc\).
+
+Proof. By Proposition 2.2.12.(f), there exists a positive number \(m\) such that
+\(b = a + m\). Then \(bc = (a + m)c = ac + mc\). Since \(m\) and \(c\) are both
+positive, \(mc > 0\) by Lemma 2.3.3. Thus, using Proposition 2.2.12.(f) again,
+we can conclude that \(bc > ac\).
+
+*** Corollary 2.3.7
+
+Corollary 2.3.7 (Cancellation law). Let \(a\), \(b\), \(c\) be natural numbers
+such that \(ac = bc\) and \(c\) is non-zero. Then \(a = b\).
+
+Proof. We proceed by contradiction. Suppose \(a \ne b\). Then by the trichatomy
+of order, either \(a > b\) or \(a < b\). If \(a > b\), by Proposition 2.3.6 \(ac
+> bc\),
+which contradicts \(ac = bc\). We can also obtain the same result when
+\(a < b\). Hence \(a = b\).
