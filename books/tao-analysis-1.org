@@ -2,6 +2,8 @@
 
 Started reading on 2026-06-14.
 
+- 2026-06-27
+  - § 2.3: Did Exercise 2.3.5.
 - 2026-06-26
   - § 2.3: Proved Proposition 2.3.6 and Corollary 2.3.7.
 - 2026-06-24
@@ -435,3 +437,26 @@ of order, either \(a > b\) or \(a < b\). If \(a > b\), by Proposition 2.3.6 \(ac
 > bc\),
 which contradicts \(ac = bc\). We can also obtain the same result when
 \(a < b\). Hence \(a = b\).
+
+*** Exercise 2.3.5
+Proposition 2.3.9 (Euclidean algorithm). Let \(n\) be a natural number, and let
+\(q\) be a positive number. Then there exist natural numbers \(m\), \(r\) such
+that \(0 \le r < q\) and \(n = mq + r\).
+
+Proof. We induct on \(n\), keeping \(q\) fixed. Consider the base case \(n =
+0\).
+Then we can choose \(m = 0\) and \(r = 0\), since \(0 < q\) and \(0 = 0q + 0\).
+
+Now suppose inductively that there exist natural numbers \(m\) and \(r\)
+satisfying the conditions. We have to find \(m^{\prime}\) and \(r^{\prime}\)
+such that \(0 \le r^{\prime} < q\) and \(n\textt{++} = m^{\prime}q + r^{\prime}\).
+
+Since \(n = mq + r\), we have \(n\textt{++} = (m^{\prime}q + r)\textt{++} = m^{\prime} + (r\textt{++})\).
+
+By the inductive hypothesis \(r < q\), and thus \(r\textt{++} \le q\). So we have
+two cases here: \(r\textt{++} < q\) or \(r\textt{++} = q\).
+
+If \(r\textt{++} <
+q\), then \(m^{\prime} = m\) and \(r^{\prime} = r\textt{++}\), so we are done.
+Otherwise \(r\textt{++} = q\), and then \(mq + (r\textt{++}) = mq + q = (m + 1)q\).
+Hence we can choose \(m^{\prime} = m + 1\) and \(r = 0\). This closes the induction.
