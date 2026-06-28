@@ -2,6 +2,8 @@
 
 Started reading on 2026-06-14.
 
+- 2026-06-28
+  - § 2.3: Reviewed Definition 2.3.11 (Exponentiation for natural numbers).
 - 2026-06-27
   - § 2.3: Did Exercise 2.3.5.
 - 2026-06-26
