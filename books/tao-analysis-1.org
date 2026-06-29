@@ -2,6 +2,8 @@
 
 Started reading on 2026-06-14.
 
+- 2026-06-29
+  - § 2.3: Did Exercise 2.3.4.
 - 2026-06-28
   - § 2.3: Reviewed Definition 2.3.11 (Exponentiation for natural numbers).
 - 2026-06-27
@@ -440,7 +442,37 @@ of order, either \(a > b\) or \(a < b\). If \(a > b\), by Proposition 2.3.6 \(ac
 which contradicts \(ac = bc\). We can also obtain the same result when
 \(a < b\). Hence \(a = b\).
 
+*** Exercise 2.3.4
+
+Prove the identity \((a + b)^2 = a^2 + 2ab + b^2\) for all natural numbers
+\(a\), \(b\).
+
+Lemma. \(a^1 = a\) for all natural number \(a\).
+
+Proof. \(a^1 = a^{0\textt{++}} = a^0 \cdot a = 1 \cdot a = a\).
+
+We now prove the identity \((a + b)^2 = a^2 + 2ab + b^2\) by the following identities:
+
+\begin{equation*}
+\begin{align*}
+(a + b)^2 & = (a + b)^1 \cdot (a + b) & \text{Definition of exponentiation} \\
+& = (a + b) \cdot (a + b) & \text{Lemma} \\
+& = (a + b) \cdot a + (a + b) \cdot b & \text{Distributive law} \\
+& = aa + ba + ab + bb & \text{Distributive law again} \\
+& = aa + ab + ab + bb & \text{Commutativity of multiplication} \\
+& = aa + 1ab + ab + bb & \text{Identity of multiplication} \\
+& = aa + 2ab + bb & \text{Definition of multiplication} \\
+& = a^1a + 2ab + b^1b & \text{Lemma} \\
+& = a^2 + 2ab + b^2 & \text{Definition of exponentiation}
+\end{align*}
+\end{equation*}
+.
+
+(Since the exercise comes immediately after the definition of exponentiation, I
+decided to be verbose here.)
+
 *** Exercise 2.3.5
+
 Proposition 2.3.9 (Euclidean algorithm). Let \(n\) be a natural number, and let
 \(q\) be a positive number. Then there exist natural numbers \(m\), \(r\) such
 that \(0 \le r < q\) and \(n = mq + r\).
@@ -462,3 +494,4 @@ If \(r\textt{++} <
 q\), then \(m^{\prime} = m\) and \(r^{\prime} = r\textt{++}\), so we are done.
 Otherwise \(r\textt{++} = q\), and then \(mq + (r\textt{++}) = mq + q = (m + 1)q\).
 Hence we can choose \(m^{\prime} = m + 1\) and \(r = 0\). This closes the induction.
+
