@@ -2,6 +2,21 @@
 
 Started reading on 2026-06-14.
 
+- 2026-07-02
+  - § 3.1: Re-read yesterday's and made a little more progress up to p. 43.
+    Today I focused on the equality axioms in Appendix A, revisiting the rules
+    for the equality relation illustrated in Suppes.
+  - The treatment of logic in this book is confusing me. I know this is a math
+    book, not a strict logic book, but my brain cannot yet handle a "less
+    structured" style of axioms and definitions. For example: I don't think the
+    constant symbol \(\varnothing\) is introduced with a proper definition; the
+    book states an empty set exists (Axiom 3.2), but an explicit definition of
+    the \(\varnothing\) symbol is not given.
+- 2026-07-01
+  - § 3.1: Read pp. 33-39. Also tried to formulate the axioms and definitions
+    introduced so far with first-order logic, but I was faced with so many
+    holes in my current knowledge with FOL. I'm not sure whether I'm doing this
+    "the right way".
 - 2026-06-29
   - § 2.3: Did Exercise 2.3.4.
 - 2026-06-28
