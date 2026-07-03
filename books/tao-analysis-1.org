@@ -2,6 +2,9 @@
 
 Started reading on 2026-06-14.
 
+- 2026-07-03
+  - § 3.1: I didn't do much today because of the school schedule. Just re-read
+    until p. 43 and tried deep understanding of axiom schema of replacement.
 - 2026-07-02
   - § 3.1: Re-read yesterday's and made a little more progress up to p. 43.
     Today I focused on the equality axioms in Appendix A, revisiting the rules
