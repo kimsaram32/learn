@@ -530,6 +530,31 @@ that \(A = B\) and \(B = C\). Then for any object \(x\), \(x \in A \leftrightarr
 and \(x \in B \leftrightarrow x \in C\). Thus we have \(x \in A \leftrightarrow x \in C\),
 which is equivalent to \(A = C\).
 
+*** Exercise 3.1.2.
+
+Using only Definition 3.1.4, Axiom 3.1, Axiom 3.2, and Axiom 3.3, prove that the sets
+\(\varnothing\), \(\left\{ \varnothing \right\}\), \(\left\{ \left\{ \varnothing \right\} \right\}\),\(\left\{ \varnothing, \left\{ \varnothing \right\} \right\}\) are all distinct
+(i.e., no two of them are equal to each other).
+
+1. \(\varnothing\) is not equal to any other set listed.
+   By Axiom 3.3, the other sets contain at least one element:
+   \(\varnothing \in \left\{ \varnothing \right\}\), \(\left\{ \varnothing \right\} \in \left\{ \left\{ \varnothing \right\} \right\}\), \(\varnothing \in \left\{ \varnothing, \left\{ \varnothing \right\} \right\}\).
+   But by Axiom 3.2, \(\varnothing\) has no elements, specifically \(\varnothing \notin \varnothing\) and \(\left\{ \varnothing \right\} \notin \varnothing\).
+   Hence by Definition 3.1.4, no sets listed are equal to \(\varnothing\).
+
+2. \(\left\{ \varnothing \right\} \ne \left\{ \left\{ \varnothing \right\} \right\}\).
+   By Axiom 3.3, \(\left\{ \left\{ \varnothing \right\} \right\}\) contains \(\left\{ \varnothing \right\}\), and \(\left\{ \varnothing \right\}\) contains \(\left\{ \varnothing \right\}\) if and only if \(\left\{ \varnothing \right\} = \varnothing\).
+   We already have shown that \(\varnothing \ne \left\{ \varnothing \right\}\). Hence \(\left\{ \varnothing \right\}\) is in \(\left\{ \left\{ \varnothing \right\} \right\}\) but it is not an element of \(\left\{ \varnothing \right\}\),
+   and by Definition 3.1.4 \(\left\{ \varnothing \right\}\) is not equal to \(\left\{ \left\{ \varnothing \right\} \right\}\).
+   
+3. \(\left\{ \varnothing \right\} \ne \left\{ \varnothing, \left\{ \varnothing \right\} \right\}\).
+   By Axiom 3.3, \(x \in \left\{ \varnothing, \left\{ \varnothing \right\} \right\}\) if and only if \(x = \varnothing\) or \(x = \left\{ \varnothing \right\}\). Thus, \(\left\{ \varnothing \right\} \in \left\{ \varnothing, \left\{ \varnothing \right\} \right\}\),
+   but we know that \(\left\{ \varnothing \right\}\) is not an element of \(\left\{ \varnothing \right\}\). Thus the two sets are distinct.
+
+4. \(\left\{ \left\{ \varnothing \right\} \right\} \ne \left\{ \varnothing, \left\{ \varnothing \right\} \right\}\).
+   By a similar argument, \(\varnothing\) is in \(\left\{ \varnothing, \left\{ \varnothing \right\} \right\}\), but since \(\varnothing \ne \left\{ \varnothing \right\}\), it's not in
+   \(\left\{ \left\{ \varnothing \right\} \right\}\). Hence the two sets are also distinct.
+
 *** Exercise 3.1.11.
 
 Show that the axiom of replacement implies the axiom of specification.
