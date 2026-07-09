@@ -2,6 +2,12 @@
 
 Started reading on 2026-06-14.
 
+- 2026-07-09
+  - § 3.1: Did Exercise 3.1.5.
+- 2026-07-08
+  - § 3.1: Did Exercise 3.1.4.
+- 2026-07-07
+  - § 3.1: Did Exercise 3.1.3.
 - 2026-07-04
   - § 3.1: Read the remainder of the section and did Exercises 3.1.1, 3.1.2,
     3.1.11. Bringing them here is becoming more and more tedious... Today I only
@@ -177,7 +183,7 @@ either case we are done. Finally, if \(a > b\) then for some natural number
 \textt{++})\). Hence \(a \textt{++} > b\).
 This closes the induction.
 
-*** Exercise 2.2.5.
+*** Exercise 2.2.5
 
 Proposition 2.2.14 (Strong principle of induction). Let $m_0$ be a natural number,
 and let $P(m)$ be a property pertaining to an arbitrary natural number $m$.
@@ -259,7 +265,7 @@ for all \(m \ge m_0\). For every natural number \(m \ge m_0\),
 Together with the fact that \(m_0 \le m < m\textt{++}\), we conclude that
 \(P(m)\). This demonstrates the strong principle of induction.
 
-*** Exercise 2.2.6.
+*** Exercise 2.2.6
 
 Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the
 natural numbers such that whenever $P(m++)$ is true, then $P(m)$ is true.
@@ -325,7 +331,7 @@ Since \(n \cdot
 m\) and \(m\) are natural numbers, \((n \cdot m) + n\) is so by the property of
 addition. This closes the induction.
 
-*** Exercise 2.3.1.
+*** Exercise 2.3.1
 
 Lemma 2.3.2 (Multiplication is commutative). Let \(n\), \(m\) be natural
 numbers. Then \(n \cdot m = m \cdot n\).
@@ -517,7 +523,7 @@ q\), then \(m^{\prime} = m\) and \(r^{\prime} = r\textt{++}\), so we are done.
 Otherwise \(r\textt{++} = q\), and then \(mq + (r\textt{++}) = mq + q = (m + 1)q\).
 Hence we can choose \(m^{\prime} = m + 1\) and \(r = 0\). This closes the induction.
 
-*** Exercise 3.1.1.
+*** Exercise 3.1.1
 
 Show that the definition of equality in Definition 3.1.4 is reflexive,
 symmetric, and transitive.
@@ -530,7 +536,7 @@ that \(A = B\) and \(B = C\). Then for any object \(x\), \(x \in A \leftrightarr
 and \(x \in B \leftrightarrow x \in C\). Thus we have \(x \in A \leftrightarrow x \in C\),
 which is equivalent to \(A = C\).
 
-*** Exercise 3.1.2.
+*** Exercise 3.1.2
 
 Using only Definition 3.1.4, Axiom 3.1, Axiom 3.2, and Axiom 3.3, prove that the sets
 \(\varnothing\), \(\left\{ \varnothing \right\}\), \(\left\{ \left\{ \varnothing \right\} \right\}\),\(\left\{ \varnothing, \left\{ \varnothing \right\} \right\}\) are all distinct
@@ -555,7 +561,7 @@ Using only Definition 3.1.4, Axiom 3.1, Axiom 3.2, and Axiom 3.3, prove that the
    By a similar argument, \(\varnothing\) is in \(\left\{ \varnothing, \left\{ \varnothing \right\} \right\}\), but since \(\varnothing \ne \left\{ \varnothing \right\}\), it's not in
    \(\left\{ \left\{ \varnothing \right\} \right\}\). Hence the two sets are also distinct.
 
-*** Exercise 3.1.3.
+*** Exercise 3.1.3
 
 Prove the remaining claims in Lemma 3.1.13.
 
@@ -591,7 +597,62 @@ always false by Axiom 3.2. So \(A\) and \(A \cup \varnothing\) are equal.
 Finally, by the previous argument we know that the union operation for sets is commutative,
 so \(A \cup \varnothing\) and \(\varnothing \cup A\) are also equal.
 
-*** Exercise 3.1.11.
+*** Exercise 3.1.4
+
+Prove the remaining claims in Proposition 3.1.18.
+
+Lemma. Let \(A\) and \(B\) be sets. If \(A \subset B\), then there is an object \(x\)
+such that \(x \in B\) and \(x \notin A\).
+
+Proof. Since \(A \ne B\), there is an object \(x\) which belongs to exactly one of \(A\) and \(B\).
+But if \(x \in A\) and \(x \notin B\), that would contradict \(A \subseteq B\), which states
+every \(x \in A\) also satisfies \(x \in B\). Thus \(x \in B\) and \(x \notin A\).
+
+We now prove the two remaining claims in the proposition. Let \(A, B, C\) be sets.
+
+1) If \(A \subseteq B\) and \(B \subseteq A\), then \(A = B\).
+   Let \(x\) be an object. Then by Definition 3.1.15 we have
+   \(x \in A \to x \in B\) and \(x \in B \to x \in A\).
+   These two statements form the equivalence \(x \in A \leftrightarrow x \in B\),
+   which is precisely the definition of \(A = B\).
+
+2) If \(A \subset B\) and \(B \subset C\) then \(A \subset C\).
+   - Since the hypothesis implies that \(A \subseteq B\) and \(B \subseteq C\),
+     \(A \subseteq C\) by the preceding claim (which is in the book).
+     Now let us prove \(A \ne C\). Since \(B \subset C\) implies \(B \ne C\), either \(B \subseteq C\) or \(C \subseteq B\) is false
+     by (1). We already have \(B \subseteq C\), so \(C \subseteq B\).
+     Now, suppose for the sake contradiction that \(A = C\). Then we can substitute \(C\) for \(A\) in \(A \subseteq B\),
+     obtaining \(C \subseteq B\), which is a contradiction. Hence \(A \ne C\).
+   - Alternative: Proving \(A \subseteq C\) is the same as above, and we prove that \(A \ne C\).
+     Since \(A \subset B\), by the above Lemma there is an element \(x\) in \(B\) which is not an element of \(A\).
+     Also, since \(B \subset C\), \(x\) is an element of \(C\). Thus, we have \(x\), which is
+     an element of \(C\) but not an element of \(A\), demonstrating \(A \ne C\).
+
+*** Exercise 3.1.5
+
+Let \(A\), \(B\) be sets. Show that the statements \(A \subseteq B\), \(A \cup B = B\), \(A \cap B = A\)
+are logically equivalent (any one of them implies the other two).
+
+Proof. We prove the equivalences by proving three implications: \(A \subseteq B \to A \cup B\),
+\(A \cup B = B \to A \cap B = A\), and \(A \cap B = A \to A \subseteq B\).
+
+1) \(A \subseteq B \to A \cup B\).
+   Let \(x\) be an object. It is logically true that \(x \in B\) implies that
+   \(x \in A\) or \(x \in B\). Also, suppose \(x \in A\) or \(x \in B\). Since all elements
+   of \(A\) are elements of \(B\), in either case \(x \in B\). Hence we have the equivalence
+   \(x \in A \lor x \in B \leftrightarrow x \in B\), and so the two sets are equal.
+   
+2) \(A \cup B = B \to A \cap B = A\).
+   It is clear that \(x \in A\) and \(x \in B\) implies \(x \in A\).
+   Now let \(x\) be an element of \(A\). since \(x \in A\) or \(x \in B\) implies
+   \(x \in B\), \(x\) must also be an element of \(B\). Hence every element of \(A\) is an element of
+   \(A \cap B\), which demonstrates the equality \(A \cap B = A\).
+
+3) \(A \cap B = A \to A \subseteq B\).
+   We have \(x \in A\) and \(x \in B\) if and only if \(x \in A\).
+   Thus, if \(x \in A\), then also \(x \in B\), which demonstrates \(x \subseteq B\).
+   
+*** Exercise 3.1.11
 
 Show that the axiom of replacement implies the axiom of specification.
 
@@ -617,3 +678,4 @@ Conversely, let \(z \in Y\). Then there exists an \(x \in A\) such that \(Q(x, z
 i.e., \(x = z\) and \(P(x)\). Since \(x = z\), it follows that \(P(z)\) and \(z \in A\).
 
 Hence, \(Y\) is the set we were looking for, and this completes our proof.
+
