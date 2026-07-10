@@ -2,6 +2,9 @@
 
 Started reading on 2026-06-14.
 
+- 2026-07-10
+  - § 3.1: Did Exercise 3.1.8.
+  - § 3.1: Did the first part of Exercise 3.2.2.
 - 2026-07-09
   - § 3.1: Did Exercise 3.1.5.
 - 2026-07-08
@@ -652,6 +655,23 @@ Proof. We prove the equivalences by proving three implications: \(A \subseteq B 
    We have \(x \in A\) and \(x \in B\) if and only if \(x \in A\).
    Thus, if \(x \in A\), then also \(x \in B\), which demonstrates \(x \subseteq B\).
    
+*** Exercise 3.1.8.
+
+Let \(A, B\) be sets. Prove the absorption laws \(A \cap (A \cup B) = A\) and \(A \cup (A \cap B) = A\).
+
+Proof. We use the results of Exercise 3.1.7 here.
+
+1) \(A \cap (A \cup B) = A\).
+   For any set \(A\) and \(B\), we have \(A \subseteq A\) as well as \(A \subseteq A \cup B\),
+   so it follows that \(A \subseteq A \cap (A \cup B)\).
+   Also, since \(A \cap B \subseteq A\) for every \(B\), we have \(A \cap (A \cup B) \subseteq A\).
+   Hence the two sets \(A\) and \(A \cap (A \cup B)\) are subsets of each other, demonstrating their equality.
+
+2) \(A \cup (A \cap B) = A\).
+   Similarly, since \(A \subseteq A\) and \(A \cap B \subseteq A\), it follows that their union is
+   also a subset of \(A\), i.e., \(A \cup (A \cap B) \subseteq A\). Also, since \(A \subseteq (A \cup B)\) for any \(B\),
+   we have \(A \subseteq A \cup (A \cap B)\). Therefore \(A \cup (A \cap B) = A\).
+
 *** Exercise 3.1.11
 
 Show that the axiom of replacement implies the axiom of specification.
@@ -679,3 +699,20 @@ i.e., \(x = z\) and \(P(x)\). Since \(x = z\), it follows that \(P(z)\) and \(z 
 
 Hence, \(Y\) is the set we were looking for, and this completes our proof.
 
+*** Exercise 3.2.2.
+
+Use the axiom of regularity (and the singleton set axiom) to show that if \(A\) is a set,
+then \(A \notin A\). Furthermore, show that if \(A\) and \(B\) are two sets, then either
+\(A \notin B\) or \(B \notin A\).
+
+1) For every set \(A\), \(A \notin A\).
+
+   Proof. Suppose, for the sake of contradiction, that there exists a set \(A\) such that
+   \(A \in A\). Consider the singleton set \(\left\{ A \right\}\). Since it is nonempty, axiom of regularity
+   states that there exists an \(x \in \left\{ A \right\}\) such that \(x\) is either not a set,
+   or is disjoint from \(\left\{ A \right\}\). By definition of \(\left\{ A \right\}\), \(x\) is equal to \(A\), which is clearly is a set.
+   It is also not disjoint from \(\left\{ A \right\}\), since there is an element, \(A\), which is
+   both elements of \(A\) and \(\left\{ A \right\}\). This contradicts the properties of \(x\).
+   Hence \(A \notin A\) for every set \(A\).
+
+2) For every set \(A\) and \(B\), either \(A \notin B\) or \(B \notin A\). 
