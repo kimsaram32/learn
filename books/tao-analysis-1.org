@@ -2,9 +2,11 @@
 
 Started reading on 2026-06-14.
 
+- 2026-07-13
+  - § 3.2: Did the second part of Exercise 3.2.2.
 - 2026-07-10
   - § 3.1: Did Exercise 3.1.8.
-  - § 3.1: Did the first part of Exercise 3.2.2.
+  - § 3.2: Did the first part of Exercise 3.2.2.
 - 2026-07-09
   - § 3.1: Did Exercise 3.1.5.
 - 2026-07-08
@@ -715,4 +717,11 @@ then \(A \notin A\). Furthermore, show that if \(A\) and \(B\) are two sets, the
    both elements of \(A\) and \(\left\{ A \right\}\). This contradicts the properties of \(x\).
    Hence \(A \notin A\) for every set \(A\).
 
-2) For every set \(A\) and \(B\), either \(A \notin B\) or \(B \notin A\). 
+2) For every set \(A\) and \(B\), either \(A \notin B\) or \(B \notin A\).
+
+   Proof. Let \(A\) and \(B\) be sets. Suppose, for the sake of contradiction, that \(A \in B\) and \(B \in A\).
+   By Axiom 3.3 there exists a pair set \(\left\{ A, B \right\}\) such that \(x \in \left\{ A, B \right\}\)
+   if and only if \(x = A\) or \(x = B\). Notice that neither \(A\) nor \(B\) is disjoint from \(\left\{ A, B \right\}\),
+   since \(B\) is both in \(A\) and \(\left\{ A, B \right\}\), and \(A\) is both in \(B\) and \(\left\{ A, B \right\}\).
+   Thus, every element of \(\left\{ A, B \right\}\) is a set, and it is not disjoint from \(\left\{ A, B \right\}\),
+   contradicting the axiom of regularity. Hence either \(A \notin B\) or \(B \notin A\).
