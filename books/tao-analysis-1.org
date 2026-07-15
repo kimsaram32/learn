@@ -2,6 +2,10 @@
 
 Started reading on 2026-06-14.
 
+- 2026-07-15
+  - § 3.2: Completed Exercise 3.2.3.
+- 2026-07-14
+  - § 3.2: Wrote the sketch for Exercise 3.2.3.
 - 2026-07-13
   - § 3.2: Did the second part of Exercise 3.2.2.
 - 2026-07-10
@@ -701,7 +705,7 @@ i.e., \(x = z\) and \(P(x)\). Since \(x = z\), it follows that \(P(z)\) and \(z 
 
 Hence, \(Y\) is the set we were looking for, and this completes our proof.
 
-*** Exercise 3.2.2.
+*** Exercise 3.2.2
 
 Use the axiom of regularity (and the singleton set axiom) to show that if \(A\) is a set,
 then \(A \notin A\). Furthermore, show that if \(A\) and \(B\) are two sets, then either
@@ -725,3 +729,23 @@ then \(A \notin A\). Furthermore, show that if \(A\) and \(B\) are two sets, the
    since \(B\) is both in \(A\) and \(\left\{ A, B \right\}\), and \(A\) is both in \(B\) and \(\left\{ A, B \right\}\).
    Thus, every element of \(\left\{ A, B \right\}\) is a set, and it is not disjoint from \(\left\{ A, B \right\}\),
    contradicting the axiom of regularity. Hence either \(A \notin B\) or \(B \notin A\).
+
+*** Exercise 3.2.3
+
+Show that the universal specification axiom, Axiom 3.8, is equivalent to an
+axiom postulating the existence of a "universal set" \(\Omega\) consisting of
+all objects (i.e., for all objects \(x\), we have \(x \in \Omega\)).
+
+Proof. First, suppose that Axiom 3.8 is true. Let \(P(x)\)
+be a statement that is always true. By the axiom, there exists a set \(\Omega\) such that
+for every object \(y\), \(y \in \Omega \leftrightarrow P(y) \text{ is true}\). Now we have
+\(y \in \Omega\) for any object \(y\), since \(P(y)\) is always true.
+Hence Axiom 3.8 implies the existence of the universal set.
+
+Conversely, suppose that there exists a set \(\Omega\) such that for any object \(y\), \(y \in \Omega\).
+Let \(P(x)\) be a property pertaining to any object \(x\). Then by Axiom 3.5, there exists a set
+\(\left\{ x \in \Omega: P(x) \text{ is true} \right\}\) such that for any object y,
+\(y \in \left\{ y \in \Omega: P(y) \text{ is true} \right\} \leftrightarrow y \in \Omega \text{ and } P(y) \text{ is true}\).
+But since \(y \in \Omega\) is always true, this is equivalent to \(y \in \left\{ y \in \Omega: P(y) \text{ is true} \right\} \leftrightarrow P(y) \text{ is true}\).
+Thus, for any property \(P(x)\), there exists the set containing the exact elements satisfying \(P(x)\),
+demonstrating the universal specification axiom.
