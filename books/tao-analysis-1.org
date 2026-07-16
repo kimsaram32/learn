@@ -705,6 +705,33 @@ i.e., \(x = z\) and \(P(x)\). Since \(x = z\), it follows that \(P(z)\) and \(z 
 
 Hence, \(Y\) is the set we were looking for, and this completes our proof.
 
+*** Exercise 3.2.1
+
+Show that the universal specification axiom, Axiom 3.8, it assumed to be true,
+would imply Axioms 3.2, 3.3, 3.4, 3.5, and 3.6.
+
+1) Axiom 3.2
+   Let \(P(x)\) be the property that is always false for every object \(x\).
+   Axiom 3.8 implies the existence of a set \(\varnothing\) such that for every object \(x\),
+   \(x \in \varnothing \leftrightarrow P(x) \text{ is true}\). Since \(P(x)\) is always false for every object \(x\),
+   it follows that \(\varnothing\) does not contain any object. Thus the empty set \(\varnothing\) exists.
+
+2) Axiom 3.3
+   Let \(a\) and \(b\) be objects, and let \(P(x) \leftrightarrow x = a\) and \(Q(x) \leftrightarrow x = a \lor x = b\).
+   Then by Axiom 3.8 there exist sets \(\left\{ x : P(x) \text{ is true} \right\}\) and \(\left\{ x : Q(x) \text{ is true} \right\}\)
+   such that for every object \(x\), \(x \in \left\{ x : P(x) \text{ is true} \right\} \leftrightarrow x = a\) and
+   \(x \in \left\{ x : Q(x) \text{ is true} \right\} \leftrightarrow x = a \lor x = b\), which are precisely
+   definitions of a singleton set and a pair set, respectively. Hence the singleton set \(\left\{ a \right\}\) and the
+   pair set \(\left\{ a, b \right\}\) exist for every object \(a\) and \(b\).
+
+3) Axiom 3.4
+   Let \(A\) and \(B\) be sets, and let \(P(x) \leftrightarrow x \in A \lor x \in B\) for every object \(x\).
+   Applying \(P(x)\) immediately yields the set whose elements either belong to \(A\) or \(B\),
+   which is exactly \(A \cup B\).
+
+4) Axiom 3.5
+5) Axiom 3.6
+
 *** Exercise 3.2.2
 
 Use the axiom of regularity (and the singleton set axiom) to show that if \(A\) is a set,
