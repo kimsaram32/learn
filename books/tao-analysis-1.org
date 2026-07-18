@@ -2,6 +2,8 @@
 
 Started reading on 2026-06-14.
 
+- 2026-07-18
+  - § 3.2: Finished Exercise 3.2.1.
 - 2026-07-15
   - § 3.2: Completed Exercise 3.2.3.
 - 2026-07-14
@@ -730,7 +732,15 @@ would imply Axioms 3.2, 3.3, 3.4, 3.5, and 3.6.
    which is exactly \(A \cup B\).
 
 4) Axiom 3.5
+   Let \(A\) be a set, and let \(P(x)\) be a property pertaining to \(x \in A\).
+   We can apply Axiom 3.8 to the property \(x \in A \land P(x) \text{ is true}\)
+   to immediately obtain the set provided by the axiom of specification.
+
 5) Axiom 3.6
+   Let \(A\) be a set, and let \(P(x, y)\) pertaining to \(x, y \in A\) such that
+   for each \(x \in A\), there is at most one \(y\) for which \(P(x, y)\) is true. Applying
+   Axiom 3.8 to the property \(P(x, y) \text{ is true for some } x \in A\) immediately
+   yields the desired set.
 
 *** Exercise 3.2.2
 
