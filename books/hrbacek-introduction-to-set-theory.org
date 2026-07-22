@@ -1,0 +1,9 @@
+* Introduction to Set Theory (Hrbacek Karel & Thomas Jech)
+
+Started reading on 2026-07-20.
+
+- 2026-07-22
+  - §1.3: Read pp. 7-8.
+- 2026-07-21
+  - §1.2: Read the whole section. This felt like a more intuitive version to
+    formal logic.
