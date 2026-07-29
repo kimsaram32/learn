@@ -2,6 +2,8 @@
 
 Started reading on 2026-07-20.
 
+- 2026-07-29
+  - §1.3: Read pp. 9-10 (The Axiom of Pair & The Axiom of Union).
 - 2026-07-28
   - §1.3: Re-read til p. 8. I've been busy for other projects, so I needed a
     review today.
