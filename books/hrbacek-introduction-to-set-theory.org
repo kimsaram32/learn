@@ -2,6 +2,8 @@
 
 Started reading on 2026-07-20.
 
+- 2026-07-31
+  - §1.3: Did Exercise 3.7.
 - 2026-07-30
   - §1.3: Read the rest of the section, and wrote out the sketch for Exercises
     3.1 and 3.2.
@@ -18,3 +20,60 @@ Started reading on 2026-07-20.
 - 2026-07-21
   - §1.2: Read the whole section. This felt like a more intuitive version to
     formal logic.
+
+** My solutions for exercises
+
+*** Exercise 3.7
+
+Prove the Axiom of Pair, the Axiom of Union, and the Axiom of Power Set using
+their weaker versions.
+
+**** The Axiom of Pair
+
+Weak Axiom of Pair. For any \(A\) and \(B\), there is a set \(C\) such that
+\(A \in C\) and \(B \in C\).
+
+Proposition. For any \(A\) and \(B\), there is a set \(C\) such that \(x \in C\)
+if and only if \(x = A\) or \(x = B\).
+
+Proof. Let \(A\) and \(B\) be sets, and let \(C\) be a set such that \(A \in C\)
+and \(B \in C\). Now consider the set \(Y = \left\{ x \in C : x = A or x = B \right\}\).
+We show that \(x \in Y\) if and only if \(x = A\) or \(x = B\). Indeed, \(x = A\) or \(x = B\) for
+any \(x \in Y\). Conversely, if \(x = A\) or \(x = B\), then \(x \in C\) by the definition of \(C\),
+giving \(x \in Y\). Hence \(Y\) has the required property.
+
+**** The Axiom of Union
+
+Weak Axiom of Union. For any \(S\), there exists \(U\) such that if \(x \in A\)
+and \(A \in S\), then \(x \in U\).
+
+Proposition. For any \(S\), there exists a \(U\) such that \(x \in U\) if and only if
+\(x \in A\) and \(x \in S\) for some \(A.\)
+
+Proof.
+
+Let \(S\) be a set. By the weak axiom of union, there exists a \(U\) such that
+for every \(x\) and \(A\), \(x \in U\) if \(x \in A\) and \(A \in S\).
+Define \(Y = \left\{ x \in U : x \in A \text{ and } A \in S \text{ for some } A \right\}\).
+Clearly, if \(x \in Y\), then \(x \in A\) and \(A \in S\) for some \(A\). Conversely,
+if \(x\) is a set such that \(x \in A\) and \(A \in S\) for some \(A\), then
+\(x \in U\), by definition. Hence \(x \in Y\).
+
+Therefore, For any \(S\), there is a \(Y\) such that \(x \in Y\) if and only if \(x \in A\) and \(x \in S\) for some \(A\),
+which is the desired conclusion.
+
+**** The Axiom of Power Set
+
+Weak Axiom of Power Set. For any set \(S\), there exists a \(P\) such that
+\(x \subseteq S\) implies \(x \in P\).
+
+Proposition. For any set \(S\), there exists a \(P\) such that \(x \in P\)
+if and only if \(x \subseteq S\).
+
+Proof. Let \(S\) be a set, and let \(P\) be the set implied by the weak axiom of power set.
+Consider the set \(Y = \left\{ x \in P : x \subseteq S \right\}\).
+Since \(x \subseteq S\) implies \(x \in P\), the statements
+"\(x \subseteq S\)" and "\(x \in P \text{ and } x \subseteq S\)"
+are equivalent.
+Hence we have \(x \in Y \leftrightarrow x \in P \text{ and } x \subseteq S \leftrightarrow x \subseteq S\).
+Therefore \(Y\) satisfies the required property.
