@@ -2,6 +2,8 @@
 
 Started reading on 2026-07-20.
 
+- 2026-08-12
+  - §1.4: Did the first part of Exercise 4.5.
 - 2026-08-09
   - §1.4: Wrote solutions for Exercise 4.4 and 4.6 here, and sketched the
     solution for Exercise 4.5.
@@ -96,6 +98,46 @@ if and only if \(x \notin A\). Now consider the set \(A \cup X\). For every \(x\
 \(x \in A\) or \(x \notin A\). That implies \(x \in A \cup X\) for every \(x\) and thus
 \(A \cup X\) is the universal set. But this contradicts Exercise 3.3, which states
 no universal set exists. Therefore the "complement" of \(A\) does not exist.
+
+*** Exercise 4.5
+
+Let \(S \ne \varnothing\) and \(A\) be sets.
+
+**** (a)
+
+Set \(T_1 = \left\{ Y \in \mathcal{P}(A) : Y = A \cap X \text{ for some } X \in S \right\}\),
+and prove \(A \cap \bigcup S = \bigcup T_1\) (generalized distributed law).
+
+Proof. First, we introduce a small lemma:
+
+Lemma. For every \(X \in S\), \(A \cap X \in \mathcal{P}(A)\).
+Indeed, \(A \cap X \subseteq A\), and so by definition of \(\mathcal{P}(A)\), \(A \cap X \in \mathcal{P}(A)\).
+
+Now we prove that both sets are equal using the Axiom of Extensionality.
+
+First, let \(x \in A \cap \bigcup S\). To show that \(x \in \bigcup T_1\), we seek an element of \(T_1\)
+which contains \(x\). since \(x\) belongs to \(\bigcup S\), \(x \in X\) for some \(X \in S\).
+Now consider the set \(A \cap X\). By the above lemma, it is an element of
+\(\mathcal{P}(A)\), and thus an element of \(T_1\).
+Since \(A\) and \(X\) both contain \(x\), \(x \in A \cap X\). Therefore, \(A \cap X\)
+is the set we were seeking.
+
+Conversely, let \(x \in \bigcup T_1\). By the Axiom of Union, there exists a \(Y \in T_1\)
+which contains \(x\). Now by the definition of \(T_1\), \(Y = A \cap X\) for some \(X \in S\).
+Since \(x \in Y = A \cap X\), we have \(x \in \bigcup S\), as \(x \in X\) for some \(X \in S\).
+Hence \(x \in A \cap \bigcup S\), as desired.
+
+Therefore, the Axiom schema of Extensionality, \(A \cap \bigcup S = \bigcup T_1\).
+
+**** (b)
+
+Set \(T_2 = \left\{ Y \in \mathcal{P}(A) : Y = A - X \text{ for some } X \in S \right\}\), and prove
+
+\(A - \bigcup S = \bigcap T_2\)
+
+\(A - \bigcap S = \bigcup T_2\).
+
+(generalized De Morgan laws).
 
 *** Exercise 4.6
 
