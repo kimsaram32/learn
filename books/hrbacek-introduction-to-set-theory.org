@@ -2,6 +2,8 @@
 
 Started reading on 2026-07-20.
 
+- 2026-08-13
+  - §1.4: Did the second part of Exercise 4.5.
 - 2026-08-12
   - §1.4: Did the first part of Exercise 4.5.
 - 2026-08-09
@@ -133,11 +135,29 @@ Therefore, the Axiom schema of Extensionality, \(A \cap \bigcup S = \bigcup T_1\
 
 Set \(T_2 = \left\{ Y \in \mathcal{P}(A) : Y = A - X \text{ for some } X \in S \right\}\), and prove
 
-\(A - \bigcup S = \bigcap T_2\)
+\(A - \bigcup S = \bigcap T_2\).
 
 \(A - \bigcap S = \bigcup T_2\).
 
 (generalized De Morgan laws).
+
+\(A - \bigcap S = \bigcup T_2\).
+
+***** \(A - \bigcup S = \bigcap T_2\).
+
+Proof. First, suppose that \(x \in A - \bigcup S\). Then we have \(x \in A\),
+while \(x\) belongs to none of the sets in \(S\). Now let \(Y \in T_2\). By the definition of
+\(T_2\), there exists an \(X \in S\) such that \(Y = A - X\). Since \(x \in A\) and
+\(x \notin X\), it follows that \(x \in Y\). Hence \(x \in Y\) for every \(Y \in T_2\),
+and so \(x \in \bigcap T_2\).
+
+Conversely, suppose that \(x \in \bigcap T_2\). For any \(X \in S\), we have \(A - X \in T_2\)
+by definition. Then \(x \in A - X\), since \(x\) belongs to any element of \(T_2\).
+Hence for every \(X \in S\), \(x \in A\) and \(x \notin X\). Since
+there is no \(X \in S\) such that \(x \in X\), \(x \notin \bigcup S\).
+Therefore \(x \in A - \bigcup S\).
+
+By extensionality, \(A - \bigcup S = \bigcap T_2\).
 
 *** Exercise 4.6
 
