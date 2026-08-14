@@ -1,26 +1,35 @@
 # English
 
-영어를 배우고 기록합니다.
+These are my personal record of learning English. Each post is short, and it
+covers either vocabulary, writing, or reading.
 
 ## Writing
 
-글을 쓰고 AI 등에게 피드백을 받은 뒤 재작성합니다.
-파일 내용은 다음과 같은 형식으로 구성되어 있습니다.
+I practice written English as follows:
+
+1. Write some English. The topic is random.
+2. Get feedback, mostly from an LLM and in Korean.
+3. Revise my writing feedback, but do not blindly follow the feedback. The words
+   should still feel like my own.
+4. Repeat.
+
+As such, the format of my writing practice is roughly:
 
 ```
-[초기 글]
+[Draft 1]
 
-[피드백]
+[Feedback]
 
-[고친 글]
+[Draft 2]
 
-[피드백]
+[Feedback]
 
-[고친 글]
+[Draft 3]
 
 ...
 ```
 
 ## Reading
 
-[pause and think method](https://www.antimoon.com/how/readhow.htm)에 따라 글을 읽고 분석한 내용을 작성합니다.
+For reading, I post some of the results of processing English texts by using the
+[pause and think method](https://www.antimoon.com/how/readhow.htm).
