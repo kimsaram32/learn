@@ -2,6 +2,8 @@
 
 Started reading on 2026-07-20.
 
+- 2026-08-21
+  - §2.1: Read p. 17.
 - 2026-08-13
   - §1.4: Did the second part of Exercise 4.5.
 - 2026-08-12
