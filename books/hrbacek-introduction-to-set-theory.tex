@@ -1,0 +1,232 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[nosumlimits]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+
+\setlist[enumerate,1]{label = \emph{\alph*}),
+  ref = \theenumi.\emph{\alph*}}
+\setlist[enumerate,2]{label = \arabic*.,
+  ref = \arabic*}
+\setlist[enumerate,3]{label = \roman*),
+  ref = \theenumii.\roman*}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Fn}{Fn}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[subsection]
+\newenvironment{exercisebreak}[1][]{%
+  \begin{exercise}[#1]$ $\par\nobreak\ignorespaces
+}{%
+  \end{exercise}
+}
+\newenvironment{proofbreak}[1][\proofname]{%
+  \begin{proof}[#1]$ $\par\nobreak\ignorespaces
+}{%
+  \end{proof}
+}
+
+\begin{document}
+
+\title{Solutions to Exercises from Introduction To Set Theory}
+\date{}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Sets}
+
+\setcounter{subsection}{2}
+
+\subsection{The Axioms}
+
+\setcounter{exercise}{6}
+
+\begin{exercise}
+  Prove the Axiom of Pair, the Axiom of Union, and the Axiom of Power Set using
+  their weaker versions.
+
+  \begin{itemize}
+  \item Weak Axiom of Pair. For any \(A\) and \(B\), there is a set \(C\) such
+    that \(A \in C\) and \(B \in C\).
+  \item Weak Axiom of Union. For any \(S\), there exists \(U\) such that if
+    \(x \in A\) and \(A \in S\), then \(x \in U\).
+  \item Weak Axiom of Power Set. For any set \(S\), there exists a \(P\) such
+    that \(x \subseteq S\) implies \(x \in P\).
+  \end{itemize}
+\end{exercise}
+
+\begin{proofbreak}
+  \begin{itemize}
+  \item The Axiom of Pair. Let \(A\) and \(B\) be sets, and let \(C\) be a set
+    such that \(A \in C\) and \(B \in C\). Now consider the set
+    \(Y = \left\{ x \in C : x = A \text{ or } x = B \right\}\). We show that
+    \(x \in Y\) if and only if \(x = A\) or \(x = B\). Indeed, \(x = A\) or
+    \(x = B\) for any \(x \in Y\). Conversely, if \(x = A\) or \(x = B\), then
+    \(x \in C\) by the definition of \(C\), giving \(x \in Y\). Hence \(Y\) has the
+    required property.
+  \item The Axiom of Union. Let \(S\) be a set. By the weak axiom of union,
+    there exists a \(U\) such that for every \(x\) and \(A\), \(x \in U\) if
+    \(x \in A\) and \(A \in S\). Define
+    \(Y = \left\{ x \in U : x \in A \text{ and } A \in S \text{ for some } A
+    \right\}\). Clearly, if \(x \in Y\), then \(x \in A\) and \(A \in S\) for some
+    \(A\). Conversely, if \(x\) is a set such that \(x \in A\) and \(A \in S\) for
+    some \(A\), then \(x \in U\), by definition. Hence \(x \in Y\). Therefore, for any
+    \(S\), there is a \(Y\) such that \(x \in Y\) if and only if \(x \in A\) and
+    \(x \in S\) for some \(A\).
+  \item The Axiom of Power Set. Let \(S\) be a set, and let \(P\) be the set
+    implied by the weak axiom of power set. Consider the set
+    \(Y = \left\{ x \in P : x \subseteq S \right\}\). Since \(x \subseteq S\) implies
+    \(x \in P\), the statements "\(x \subseteq S\)" and
+    "\(x \in P \text{ and } x \subseteq S\)" are equivalent. Hence we have
+    \(x \in Y \leftrightarrow x \in P \text{ and } x \subseteq S \leftrightarrow x \subseteq S\). Therefore
+    \(Y\) satisfies the required property.
+  \end{itemize}
+\end{proofbreak}
+
+\subsection{Elementary Operations on Sets}
+
+\setcounter{exercise}{3}
+
+\begin{exercise}
+  Let \(A\) be a set; show that a "complement" of \(A\) does not exist. (The
+  "complement" of \(A\) is the set of all \(x \notin A\).)
+\end{exercise}
+
+\begin{proof}
+  Let \(A\) be a set. Suppose that there exists a set \(X\) such that
+  \(x \in X\) if and only if \(x \notin A\). Now consider the set \(A \cup X\). For every
+  \(x\), \(x \in A \cup X\) if and only if \(x \in A\) or \(x \in X\), i.e., if and only
+  if \(x \in A\) or \(x \notin A\). That implies \(x \in A \cup X\) for every
+  \(x\) and thus \(A \cup X\) is the universal set. But this contradicts Exercise
+  3.3, which states no universal set exists. Therefore the "complement" of \(A\)
+  does not exist.
+\end{proof}
+
+\begin{exercise}
+  Let \(S \ne \varnothing\) and \(A\) be sets.
+
+  \begin{enumerate}
+  \item Set
+    \(T_1 = \left\{ Y \in \mathcal{P}(A) : Y = A \cap X \text{ for some } X \in S \right\}\), and
+    prove \(A \cap \bigcup S = \bigcup T_1\) (generalized distributed law).
+  \item Set \(T_2 = \left\{ Y \in \mathcal{P}(A) : Y = A - X \text{ for some } X \in S \right\}\), and prove
+    \[A - \bigcup S = \bigcap T_2\]
+    \[A - \bigcap S = \bigcup T_2\]
+    (generalized De Morgan laws).
+  \end{enumerate}
+\end{exercise}
+
+\begin{proofbreak}
+  \begin{enumerate}
+  \item First, we introduce a small lemma: For every \(X \in S\),
+    \(A \cap X \in \mathcal{P}(A)\). Indeed, \(A \cap X \subseteq A\), and so by definition of
+    \(\mathcal{P}(A)\), \(A \cap X \in \mathcal{P}(A)\).
+
+    Now we prove that both sets are equal using the Axiom of Extensionality.
+
+    First, let \(x \in A \cap \bigcup S\). To show that \(x \in \bigcup T_1\), we seek an element of \(T_1\)
+    which contains \(x\). since \(x\) belongs to \(\bigcup S\), \(x \in X\) for some \(X \in S\).
+    Now consider the set \(A \cap X\). By the above lemma, it is an element of
+    \(\mathcal{P}(A)\), and thus an element of \(T_1\).
+    Since \(A\) and \(X\) both contain \(x\), \(x \in A \cap X\). Therefore, \(A \cap X\)
+    is the set we were seeking.
+
+    Conversely, let \(x \in \bigcup T_1\). By the Axiom of Union, there exists a \(Y \in T_1\)
+    which contains \(x\). Now by the definition of \(T_1\), \(Y = A \cap X\) for some \(X \in S\).
+    Since \(x \in Y = A \cap X\), we have \(x \in \bigcup S\), as \(x \in X\) for some \(X \in S\).
+    Hence \(x \in A \cap \bigcup S\), as desired.
+
+    Therefore, by the Axiom schema of Extensionality, \(A \cap \bigcup S = \bigcup T_1\).
+  \item
+    \begin{enumerate}
+    \item \(A - \bigcup S = \bigcap T_2\). First, suppose that
+      \(x \in A - \bigcup S\). Then we have \(x \in A\), while \(x\) belongs to none of
+      the sets in \(S\). Now let \(Y \in T_2\). By the definition of \(T_2\),
+      there exists an \(X \in S\) such that \(Y = A - X\). Since \(x \in A\) and
+      \(x \notin X\), it follows that \(x \in Y\). Hence \(x \in Y\) for every
+      \(Y \in T_2\), and so \(x \in \bigcap T_2\).
+
+      Conversely, suppose that \(x \in \bigcap T_2\). For any \(X \in S\), we have \(A - X \in T_2\)
+      by definition. Then \(x \in A - X\), since \(x\) belongs to any element of \(T_2\).
+      Hence for every \(X \in S\), \(x \in A\) and \(x \notin X\). Since
+      there is no \(X \in S\) such that \(x \in X\), \(x \notin \bigcup S\).
+      Therefore \(x \in A - \bigcup S\).
+
+      By extensionality, \(A - \bigcup S = \bigcap T_2\).
+    \item \(A - \bigcap S = \bigcup T_2\).
+    \end{enumerate}
+  \end{enumerate}
+\end{proofbreak}
+
+\section{Relations, Functions, and Orderings}
+
+\subsection{Ordered Pairs}
+
+\subsection{Relations}
+
+\subsection{Functions}
+
+\subsection{Equivalences and Partitions}
+
+\subsection{Orderings}
+
+\begin{exercisebreak}
+  \begin{enumerate}
+  \item Let \(R\) be an ordering of \(A\), \(S\) be the corresponding strict
+    ordering of \(A\), and \(R^{*}\) be the ordering corresponding to \(S\).
+    Show that \(R^{*} = R\).
+  \item Let \(S\) be a strict ordering of \(A\), \(R\) be the corresponding
+    ordering, and \(S^{*}\) be the strict ordering corresponding to \(R\). Then
+    \(S^{*} = S\).
+  \end{enumerate}
+\end{exercisebreak}
+
+\begin{exercise}
+  Let \(\Fn(X, Y)\) be the set of all functions mapping a subset of \(X\) into
+  \(Y\). Define a function \(\le\) in \(\Fn(X, Y)\) by
+
+  \[f \le g \text{ if and only if } f \subseteq g.\]
+  \begin{enumerate}
+  \item Prove that \(\le\) is an ordering of \(\Fn(X, Y)\).
+  \item Let \(F \subseteq \Fn(X, Y)\). Show that \(\sup F\) exists if and only if
+    \(F\) is a compatible system of functions; then \(\sup F = \bigcup F\).
+  \end{enumerate}
+\end{exercise}
+
+\begin{proofbreak}
+  \begin{enumerate}
+  \item The proof is obvious from the properties of \(\subseteq\).
+  \item
+    \begin{enumerate}
+    \item Suppose that \(\text{sup}(F)\) exists, and let \(f, g \in F\). Let
+      \(x \in \text{dom}(f) \cap \text{dom}(g)\). Since \(f \le \text{sup}(F)\), i.e.,
+      \(f \subseteq \text{sup}(F)\), we have \(f(x) = (\text{sup}(F))(x)\). Similarly,
+      \(g(x) = (\text{sup}(F))(x)\), and we conclude that \(f(x) = g(x)\).
+    \item Suppose that \(F\) is a compatible system of functions. We claim that
+      \(\bigcup F = \text{sup}(F)\).
+
+      \begin{enumerate}
+      \item By Theorem 3.12, \(\bigcup F\) is a function. If
+        \(x \in \text{dom}(\bigcup F)\), \((x, y) \in f\) for some \(y\) and
+        \(f \in F\). But then \(x \in X\), since \(\text{dom}(f) \subseteq X\). So
+        \(\text{dom}(\bigcup F) \subseteq X\), and similarly,
+        \(\text{ran}(\bigcup F) \subseteq Y\). Hence \(\bigcup F \in \text{Fn(X, Y)}\).
+      \item Let \(f \in F\) and \((x, y) \in f\). Then immediately
+        \((x, y) \in \bigcup F\), so \(f \le \bigcup F\) for every \(f \in F\);
+        \(\bigcup F\) is an upper bound of \(F\).
+      \item Finally, let \(g\) be an upper bound of \(F\). If
+        \((x, y) \in \bigcup F\), \((x, y) \in f\) for some \(f \in F\). But then
+        \((x, y) \in g\), since \(f \subseteq g\). Therefore
+        \(\bigcup F \subseteq g\), that is, \(\bigcup F \le g\).
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+\end{proofbreak}
+\end{document}
